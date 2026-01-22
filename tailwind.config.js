@@ -7,8 +7,9 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                'syne': ['Syne', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
-                'darker': ['Darker Grotesque', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+                'sans': ['Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
+                'syne': ['Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
+                'darker': ['Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
             },
             colors: {
                 'primary': '#0095f2',

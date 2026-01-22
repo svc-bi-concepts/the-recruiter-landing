@@ -13,13 +13,7 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://www.the-recruiter.ch/">
 
-    <!-- Font Preloading for Performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style"
-        href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@400;500;600;700;800;900&display=swap">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@400;500;600;700;800;900&display=swap">
+    <!-- Helvetica Neue is a system font, no external loading needed -->
 
     <!-- External Stylesheets -->
     <link rel="stylesheet" href="css/styles.css">
@@ -62,11 +56,35 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
+        /* Global font - Helvetica Neue for everything */
+        * {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+        }
+
         body {
             background-color: #ffffff;
             color: #000000;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
             scroll-behavior: smooth;
+        }
+
+        /* Force Helvetica Neue on all typography elements */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        a,
+        span,
+        div,
+        button,
+        input,
+        textarea,
+        select,
+        label {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
         }
 
         /* Logo styling - Helvetica Neue, lowercase, minimal line height */
@@ -159,23 +177,28 @@
                 </button>
                 <a href="#contact" data-t="nav-contact"
                     class="text-[11px] font-bold border-b-2 border-black pb-1 hover:text-gray-500 hover:border-gray-500 transition-all uppercase"></a>
-                    </div>
+            </div>
 
-                    <!-- Mobile Menu Button -->
+            <!-- Mobile Menu Button -->
             <button class="md:hidden" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu"
                 id="mobile-menu-btn">
                 <i data-lucide="menu" class="w-6 h-6 text-black" id="menu-icon"></i>
-                    </button>
+            </button>
         </div>
     </nav>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 md:hidden">
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 md:hidden">
         <div class="flex flex-col items-center justify-center h-full gap-8">
-            <a href="#services" data-t="nav-services" onclick="closeMobileMenu()" class="text-2xl font-bold uppercase tracking-wider"></a>
-            <a href="#why" data-t="nav-whyUs" onclick="closeMobileMenu()" class="text-2xl font-bold uppercase tracking-wider"></a>
-            <a href="#contact" data-t="nav-contact" onclick="closeMobileMenu()" class="text-2xl font-bold uppercase tracking-wider"></a>
-            <button onclick="toggleLang(); closeMobileMenu();" class="text-xl font-black border-2 border-black px-4 py-2 uppercase">
+            <a href="#services" data-t="nav-services" onclick="closeMobileMenu()"
+                class="text-2xl font-bold uppercase tracking-wider"></a>
+            <a href="#why" data-t="nav-whyUs" onclick="closeMobileMenu()"
+                class="text-2xl font-bold uppercase tracking-wider"></a>
+            <a href="#contact" data-t="nav-contact" onclick="closeMobileMenu()"
+                class="text-2xl font-bold uppercase tracking-wider"></a>
+            <button onclick="toggleLang(); closeMobileMenu();"
+                class="text-xl font-black border-2 border-black px-4 py-2 uppercase">
                 <span id="lang-text-mobile">EN</span>
             </button>
         </div>
@@ -189,12 +212,15 @@
                 <div class="w-full lg:w-3/5 xl:w-1/2 z-10 text-center lg:text-left lg:pr-16 xl:pr-24">
                     <div class="flex items-center justify-center lg:justify-start gap-3 mb-10">
                         <div class="w-8 h-[1px] bg-black"></div>
-                        <span class="text-[10px] font-bold uppercase tracking-[0.5em] text-gray-400" data-t="hero-tag"></span>
+                        <span class="text-[10px] font-bold uppercase tracking-[0.5em] text-gray-400"
+                            data-t="hero-tag"></span>
                     </div>
 
-                    <h1 class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black tracking-normal mb-12 leading-[1.1] text-black lg:max-w-none" data-t="hero-title"></h1>
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black tracking-normal mb-12 leading-[1.1] text-black lg:max-w-none"
+                        data-t="hero-title"></h1>
 
-                    <p class="text-lg md:text-xl text-gray-500 mb-14 max-w-md mx-auto lg:mx-0 leading-relaxed font-medium tracking-wide" data-t="hero-subtitle"></p>
+                    <p class="text-lg md:text-xl text-gray-500 mb-14 max-w-md mx-auto lg:mx-0 leading-relaxed font-medium tracking-wide"
+                        data-t="hero-subtitle"></p>
 
                     <a href="#contact"
                         class="inline-flex items-center gap-6 bg-black text-white px-10 py-5 group hover:bg-gray-800 transition-all shadow-2xl rounded-modern">
@@ -215,9 +241,11 @@
                     <!-- Floating Badge -->
                     <div
                         class="absolute -bottom-8 -left-8 w-40 h-40 bg-black p-10 hidden xl:flex flex-col justify-center items-center z-20 rounded-modern">
-                        <span class="text-white text-[9px] font-bold uppercase tracking-[0.4em] text-center mb-1 opacity-50">Swiss</span>
+                        <span
+                            class="text-white text-[9px] font-bold uppercase tracking-[0.4em] text-center mb-1 opacity-50">Swiss</span>
                         <div class="w-full h-px bg-white/20 mb-4"></div>
-                        <span class="text-white text-[11px] font-black uppercase tracking-[0.2em] text-center leading-tight">Quality<br />Standard</span>
+                        <span
+                            class="text-white text-[11px] font-black uppercase tracking-[0.2em] text-center leading-tight">Quality<br />Standard</span>
                     </div>
                 </div>
             </div>
@@ -229,64 +257,104 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="mb-24 flex flex-col items-center lg:items-start text-center lg:text-left">
                 <h2 class="text-4xl md:text-5xl font-black tracking-normal mb-6" data-t="challenges-title"></h2>
-                <p class="text-gray-400 uppercase text-[9px] tracking-[0.4em] font-bold" data-t="challenges-subtitle"></p>
+                <p class="text-gray-400 uppercase text-[9px] tracking-[0.4em] font-bold" data-t="challenges-subtitle">
+                </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
                 <!-- Challenge 1 -->
-                <div class="bg-white p-12 flex flex-col border border-gray-100 hover:shadow-2xl transition-all duration-500 group relative rounded-modern">
+                <div
+                    class="bg-white p-12 flex flex-col border border-gray-100 hover:shadow-2xl transition-all duration-500 group relative rounded-modern">
                     <div class="mb-10">
-                        <span class="text-[9px] font-black uppercase tracking-[0.4em] text-gray-400 block mb-3 border-l-2 border-gray-200 pl-3" data-t="challenge-label-problem"></span>
-                        <h3 class="text-xl font-bold tracking-tight text-gray-900 leading-tight mb-3" data-t="challenge-1-problem"></h3>
-                        <p class="text-gray-500 text-sm leading-relaxed font-light" data-t="challenge-1-problemDesc"></p>
+                        <span
+                            class="text-[9px] font-black uppercase tracking-[0.4em] text-gray-400 block mb-3 border-l-2 border-gray-200 pl-3"
+                            data-t="challenge-label-problem"></span>
+                        <h3 class="text-xl font-bold tracking-tight text-gray-900 leading-tight mb-3"
+                            data-t="challenge-1-problem"></h3>
+                        <p class="text-gray-500 text-sm leading-relaxed font-light" data-t="challenge-1-problemDesc">
+                        </p>
                     </div>
                     <div class="mb-10">
-                        <span class="text-[9px] font-black uppercase tracking-[0.4em] text-black block mb-3 border-l-2 border-black pl-3" data-t="challenge-label-solution"></span>
-                        <h4 class="text-xl font-bold tracking-tight text-gray-900 leading-tight mb-3" data-t="challenge-1-solution"></h4>
-                        <p class="text-gray-500 text-sm leading-relaxed font-light" data-t="challenge-1-solutionDesc"></p>
-                </div>
+                        <span
+                            class="text-[9px] font-black uppercase tracking-[0.4em] text-black block mb-3 border-l-2 border-black pl-3"
+                            data-t="challenge-label-solution"></span>
+                        <h4 class="text-xl font-bold tracking-tight text-gray-900 leading-tight mb-3"
+                            data-t="challenge-1-solution"></h4>
+                        <p class="text-gray-500 text-sm leading-relaxed font-light" data-t="challenge-1-solutionDesc">
+                        </p>
+                    </div>
                     <div class="pt-10 border-t border-gray-50">
-                        <span class="text-[9px] font-black uppercase tracking-[0.4em] text-emerald-600 block mb-3 border-l-2 border-emerald-600 pl-3" data-t="challenge-label-result"></span>
-                        <h4 class="text-2xl font-black mb-3 tracking-normal uppercase leading-tight" data-t="challenge-1-result"></h4>
-                        <p class="text-gray-600 text-sm leading-relaxed font-medium" data-t="challenge-1-resultDesc"></p>
+                        <span
+                            class="text-[9px] font-black uppercase tracking-[0.4em] text-emerald-600 block mb-3 border-l-2 border-emerald-600 pl-3"
+                            data-t="challenge-label-result"></span>
+                        <h4 class="text-2xl font-black mb-3 tracking-normal uppercase leading-tight"
+                            data-t="challenge-1-result"></h4>
+                        <p class="text-gray-600 text-sm leading-relaxed font-medium" data-t="challenge-1-resultDesc">
+                        </p>
                     </div>
                 </div>
 
                 <!-- Challenge 2 -->
-                <div class="bg-white p-12 flex flex-col border border-gray-100 hover:shadow-2xl transition-all duration-500 group relative rounded-modern">
+                <div
+                    class="bg-white p-12 flex flex-col border border-gray-100 hover:shadow-2xl transition-all duration-500 group relative rounded-modern">
                     <div class="mb-10">
-                        <span class="text-[9px] font-black uppercase tracking-[0.4em] text-gray-400 block mb-3 border-l-2 border-gray-200 pl-3" data-t="challenge-label-problem"></span>
-                        <h3 class="text-xl font-bold tracking-tight text-gray-900 leading-tight mb-3" data-t="challenge-2-problem"></h3>
-                        <p class="text-gray-500 text-sm leading-relaxed font-light" data-t="challenge-2-problemDesc"></p>
+                        <span
+                            class="text-[9px] font-black uppercase tracking-[0.4em] text-gray-400 block mb-3 border-l-2 border-gray-200 pl-3"
+                            data-t="challenge-label-problem"></span>
+                        <h3 class="text-xl font-bold tracking-tight text-gray-900 leading-tight mb-3"
+                            data-t="challenge-2-problem"></h3>
+                        <p class="text-gray-500 text-sm leading-relaxed font-light" data-t="challenge-2-problemDesc">
+                        </p>
                     </div>
                     <div class="mb-10">
-                        <span class="text-[9px] font-black uppercase tracking-[0.4em] text-black block mb-3 border-l-2 border-black pl-3" data-t="challenge-label-solution"></span>
-                        <h4 class="text-xl font-bold tracking-tight text-gray-900 leading-tight mb-3" data-t="challenge-2-solution"></h4>
-                        <p class="text-gray-500 text-sm leading-relaxed font-light" data-t="challenge-2-solutionDesc"></p>
-                </div>
+                        <span
+                            class="text-[9px] font-black uppercase tracking-[0.4em] text-black block mb-3 border-l-2 border-black pl-3"
+                            data-t="challenge-label-solution"></span>
+                        <h4 class="text-xl font-bold tracking-tight text-gray-900 leading-tight mb-3"
+                            data-t="challenge-2-solution"></h4>
+                        <p class="text-gray-500 text-sm leading-relaxed font-light" data-t="challenge-2-solutionDesc">
+                        </p>
+                    </div>
                     <div class="pt-10 border-t border-gray-50">
-                        <span class="text-[9px] font-black uppercase tracking-[0.4em] text-emerald-600 block mb-3 border-l-2 border-emerald-600 pl-3" data-t="challenge-label-result"></span>
-                        <h4 class="text-2xl font-black mb-3 tracking-normal uppercase leading-tight" data-t="challenge-2-result"></h4>
-                        <p class="text-gray-600 text-sm leading-relaxed font-medium" data-t="challenge-2-resultDesc"></p>
+                        <span
+                            class="text-[9px] font-black uppercase tracking-[0.4em] text-emerald-600 block mb-3 border-l-2 border-emerald-600 pl-3"
+                            data-t="challenge-label-result"></span>
+                        <h4 class="text-2xl font-black mb-3 tracking-normal uppercase leading-tight"
+                            data-t="challenge-2-result"></h4>
+                        <p class="text-gray-600 text-sm leading-relaxed font-medium" data-t="challenge-2-resultDesc">
+                        </p>
                     </div>
                 </div>
 
                 <!-- Challenge 3 -->
-                <div class="bg-white p-12 flex flex-col border border-gray-100 hover:shadow-2xl transition-all duration-500 group relative rounded-modern">
+                <div
+                    class="bg-white p-12 flex flex-col border border-gray-100 hover:shadow-2xl transition-all duration-500 group relative rounded-modern">
                     <div class="mb-10">
-                        <span class="text-[9px] font-black uppercase tracking-[0.4em] text-gray-400 block mb-3 border-l-2 border-gray-200 pl-3" data-t="challenge-label-problem"></span>
-                        <h3 class="text-xl font-bold tracking-tight text-gray-900 leading-tight mb-3" data-t="challenge-3-problem"></h3>
-                        <p class="text-gray-500 text-sm leading-relaxed font-light" data-t="challenge-3-problemDesc"></p>
+                        <span
+                            class="text-[9px] font-black uppercase tracking-[0.4em] text-gray-400 block mb-3 border-l-2 border-gray-200 pl-3"
+                            data-t="challenge-label-problem"></span>
+                        <h3 class="text-xl font-bold tracking-tight text-gray-900 leading-tight mb-3"
+                            data-t="challenge-3-problem"></h3>
+                        <p class="text-gray-500 text-sm leading-relaxed font-light" data-t="challenge-3-problemDesc">
+                        </p>
                     </div>
                     <div class="mb-10">
-                        <span class="text-[9px] font-black uppercase tracking-[0.4em] text-black block mb-3 border-l-2 border-black pl-3" data-t="challenge-label-solution"></span>
-                        <h4 class="text-xl font-bold tracking-tight text-gray-900 leading-tight mb-3" data-t="challenge-3-solution"></h4>
-                        <p class="text-gray-500 text-sm leading-relaxed font-light" data-t="challenge-3-solutionDesc"></p>
+                        <span
+                            class="text-[9px] font-black uppercase tracking-[0.4em] text-black block mb-3 border-l-2 border-black pl-3"
+                            data-t="challenge-label-solution"></span>
+                        <h4 class="text-xl font-bold tracking-tight text-gray-900 leading-tight mb-3"
+                            data-t="challenge-3-solution"></h4>
+                        <p class="text-gray-500 text-sm leading-relaxed font-light" data-t="challenge-3-solutionDesc">
+                        </p>
                     </div>
                     <div class="pt-10 border-t border-gray-50">
-                        <span class="text-[9px] font-black uppercase tracking-[0.4em] text-emerald-600 block mb-3 border-l-2 border-emerald-600 pl-3" data-t="challenge-label-result"></span>
-                        <h4 class="text-2xl font-black mb-3 tracking-normal uppercase leading-tight" data-t="challenge-3-result"></h4>
-                        <p class="text-gray-600 text-sm leading-relaxed font-medium" data-t="challenge-3-resultDesc"></p>
+                        <span
+                            class="text-[9px] font-black uppercase tracking-[0.4em] text-emerald-600 block mb-3 border-l-2 border-emerald-600 pl-3"
+                            data-t="challenge-label-result"></span>
+                        <h4 class="text-2xl font-black mb-3 tracking-normal uppercase leading-tight"
+                            data-t="challenge-3-result"></h4>
+                        <p class="text-gray-600 text-sm leading-relaxed font-medium" data-t="challenge-3-resultDesc">
+                        </p>
                     </div>
                 </div>
             </div>
@@ -301,40 +369,49 @@
                 <div class="w-24 h-2 bg-black rounded-full"></div>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-gray-100 border border-gray-100 rounded-modern overflow-hidden">
+            <div
+                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-gray-100 border border-gray-100 rounded-modern overflow-hidden">
                 <!-- Service 1 -->
-                <div class="bg-white p-12 hover:bg-black hover:text-white transition-all duration-500 group flex flex-col min-h-[420px] rounded-modern">
+                <div
+                    class="bg-white p-12 hover:bg-black hover:text-white transition-all duration-500 group flex flex-col min-h-[420px] rounded-modern">
                     <div class="mb-14 text-gray-300 group-hover:text-white transition-colors">
                         <i data-lucide="users" class="w-12 h-12" stroke-width="1"></i>
                     </div>
-                    <h3 class="text-xl font-black uppercase tracking-[0.1em] mb-6 leading-tight" data-t="service-1-title"></h3>
+                    <h3 class="text-xl font-black uppercase tracking-[0.1em] mb-6 leading-tight"
+                        data-t="service-1-title"></h3>
                     <p class="text-sm opacity-60 leading-relaxed font-medium tracking-wide" data-t="service-1-desc"></p>
                 </div>
 
                 <!-- Service 2 -->
-                <div class="bg-white p-12 hover:bg-black hover:text-white transition-all duration-500 group flex flex-col min-h-[420px] rounded-modern">
+                <div
+                    class="bg-white p-12 hover:bg-black hover:text-white transition-all duration-500 group flex flex-col min-h-[420px] rounded-modern">
                     <div class="mb-14 text-gray-300 group-hover:text-white transition-colors">
                         <i data-lucide="briefcase" class="w-12 h-12" stroke-width="1"></i>
                     </div>
-                    <h3 class="text-xl font-black uppercase tracking-[0.1em] mb-6 leading-tight" data-t="service-2-title"></h3>
+                    <h3 class="text-xl font-black uppercase tracking-[0.1em] mb-6 leading-tight"
+                        data-t="service-2-title"></h3>
                     <p class="text-sm opacity-60 leading-relaxed font-medium tracking-wide" data-t="service-2-desc"></p>
                 </div>
 
                 <!-- Service 3 -->
-                <div class="bg-white p-12 hover:bg-black hover:text-white transition-all duration-500 group flex flex-col min-h-[420px] rounded-modern">
+                <div
+                    class="bg-white p-12 hover:bg-black hover:text-white transition-all duration-500 group flex flex-col min-h-[420px] rounded-modern">
                     <div class="mb-14 text-gray-300 group-hover:text-white transition-colors">
                         <i data-lucide="file-text" class="w-12 h-12" stroke-width="1"></i>
                     </div>
-                    <h3 class="text-xl font-black uppercase tracking-[0.1em] mb-6 leading-tight" data-t="service-3-title"></h3>
+                    <h3 class="text-xl font-black uppercase tracking-[0.1em] mb-6 leading-tight"
+                        data-t="service-3-title"></h3>
                     <p class="text-sm opacity-60 leading-relaxed font-medium tracking-wide" data-t="service-3-desc"></p>
                 </div>
 
                 <!-- Service 4 -->
-                <div class="bg-white p-12 hover:bg-black hover:text-white transition-all duration-500 group flex flex-col min-h-[420px] rounded-modern">
+                <div
+                    class="bg-white p-12 hover:bg-black hover:text-white transition-all duration-500 group flex flex-col min-h-[420px] rounded-modern">
                     <div class="mb-14 text-gray-300 group-hover:text-white transition-colors">
                         <i data-lucide="check-circle-2" class="w-12 h-12" stroke-width="1"></i>
                     </div>
-                    <h3 class="text-xl font-black uppercase tracking-[0.1em] mb-6 leading-tight" data-t="service-4-title"></h3>
+                    <h3 class="text-xl font-black uppercase tracking-[0.1em] mb-6 leading-tight"
+                        data-t="service-4-title"></h3>
                     <p class="text-sm opacity-60 leading-relaxed font-medium tracking-wide" data-t="service-4-desc"></p>
                 </div>
             </div>
@@ -344,13 +421,15 @@
     <!-- Brand Statement -->
     <section id="why" class="py-48 bg-black text-white relative overflow-hidden">
         <div class="max-w-4xl mx-auto px-6 relative z-10">
-            <h2 class="text-3xl md:text-5xl font-light tracking-wide leading-snug mb-16 opacity-90 italic" data-t="why-text"></h2>
+            <h2 class="text-3xl md:text-5xl font-light tracking-wide leading-snug mb-16 opacity-90 italic"
+                data-t="why-text"></h2>
             <div class="flex items-center gap-8">
                 <div class="w-20 h-px bg-white/20"></div>
                 <span class="text-[10px] uppercase tracking-[0.6em] font-black text-white/40" data-t="why-title"></span>
             </div>
         </div>
-        <div class="absolute bottom-0 right-0 translate-y-1/4 text-[30vw] font-black text-white/[0.02] whitespace-nowrap pointer-events-none select-none">
+        <div
+            class="absolute bottom-0 right-0 translate-y-1/4 text-[30vw] font-black text-white/[0.02] whitespace-nowrap pointer-events-none select-none">
             PEOPLE
         </div>
     </section>
@@ -360,21 +439,29 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
                 <div class="text-center lg:text-left pt-6">
-                    <h2 class="text-6xl md:text-8xl font-black tracking-normal mb-10 leading-none" data-t="contact-title"></h2>
+                    <h2 class="text-6xl md:text-8xl font-black tracking-normal mb-10 leading-none"
+                        data-t="contact-title"></h2>
                     <p class="text-2xl text-gray-400 font-medium mb-4 tracking-wide" data-t="contact-subtitle"></p>
                 </div>
 
                 <div class="flex flex-col gap-8 w-full">
                     <a href="mailto:info@the-recruiter.ch"
                         class="group flex flex-col gap-4 p-12 border border-gray-100 hover:border-black hover:shadow-2xl transition-all duration-500 rounded-modern">
-                        <span class="text-[10px] uppercase tracking-[0.5em] font-black text-gray-300 group-hover:text-black transition-colors" data-t="contact-email-label"></span>
-                        <span class="text-2xl md:text-3xl font-black tracking-normal underline underline-offset-8 decoration-gray-200 group-hover:decoration-black transition-all">info@the-recruiter.ch</span>
+                        <span
+                            class="text-[10px] uppercase tracking-[0.5em] font-black text-gray-300 group-hover:text-black transition-colors"
+                            data-t="contact-email-label"></span>
+                        <span
+                            class="text-2xl md:text-3xl font-black tracking-normal underline underline-offset-8 decoration-gray-200 group-hover:decoration-black transition-all">info@the-recruiter.ch</span>
                     </a>
 
                     <a href="tel:+41793160037"
                         class="group flex flex-col gap-4 p-12 border border-gray-100 hover:border-black hover:shadow-2xl transition-all duration-500 rounded-modern">
-                        <span class="text-[10px] uppercase tracking-[0.5em] font-black text-gray-300 group-hover:text-black transition-colors" data-t="contact-phone-label"></span>
-                        <span class="text-2xl md:text-3xl font-black tracking-normal underline underline-offset-8 decoration-gray-200 group-hover:decoration-black transition-all">+41 79 316 00 37</span>
+                        <span
+                            class="text-[10px] uppercase tracking-[0.5em] font-black text-gray-300 group-hover:text-black transition-colors"
+                            data-t="contact-phone-label"></span>
+                        <span
+                            class="text-2xl md:text-3xl font-black tracking-normal underline underline-offset-8 decoration-gray-200 group-hover:decoration-black transition-all">+41
+                            79 316 00 37</span>
                     </a>
                 </div>
             </div>
@@ -382,23 +469,26 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-20 bg-white border-t border-gray-100">
+    <footer class="py-20 bg-black text-white border-t border-gray-800">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-12">
-            <div class="logo logo-dark flex flex-col leading-[0.5]">
+            <div class="logo logo-light flex flex-col leading-[0.5]">
                 <span class="text-4xl font-bold ml-6 tracking-tight">the</span>
                 <span class="text-4xl font-bold tracking-tight">recruiter</span>
             </div>
 
-            <div class="flex flex-wrap justify-center gap-12 text-[10px] font-black uppercase tracking-[0.3em] text-gray-400">
-                <a href="impressum.html" class="hover:text-black transition-colors" data-t="footer-impressum"></a>
-                <a href="privacy-policy.html" class="hover:text-black transition-colors" data-t="footer-privacy"></a>
+            <div
+                class="flex flex-wrap justify-center gap-12 text-[10px] font-black uppercase tracking-[0.3em] text-gray-400">
+                <a href="impressum.html" class="hover:text-white transition-colors" data-t="footer-impressum"></a>
+                <a href="privacy-policy.html" class="hover:text-white transition-colors" data-t="footer-privacy"></a>
                 <a href="https://bi-concepts.ch" target="_blank" rel="noopener noreferrer"
-                    class="text-black underline underline-offset-4 decoration-gray-200 hover:decoration-black transition-all">bi-concepts.ch</a>
+                    class="text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition-all">bi-concepts.ch</a>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto px-6 mt-16 pt-10 border-t border-gray-50 flex flex-col md:flex-row justify-between items-center gap-4">
-            <span class="text-[9px] uppercase tracking-[0.5em] text-gray-300 font-bold">© <span id="current-year"></span> the recruiter</span>
-            <span class="text-[9px] uppercase tracking-[0.3em] text-gray-300 font-bold" data-t="contact-footer"></span>
+        <div
+            class="max-w-7xl mx-auto px-6 mt-16 pt-10 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
+            <span class="text-[9px] uppercase tracking-[0.5em] text-gray-400 font-bold">© <span
+                    id="current-year"></span> the recruiter</span>
+            <span class="text-[9px] uppercase tracking-[0.3em] text-gray-400 font-bold" data-t="contact-footer"></span>
         </div>
     </footer>
 
@@ -582,7 +672,7 @@
             document.getElementById('current-year').textContent = new Date().getFullYear();
 
             // Initialize icons
-        lucide.createIcons();
+            lucide.createIcons();
 
             // Load saved language preference
             const savedLang = localStorage.getItem('tr-lang') || 'de';
@@ -590,7 +680,7 @@
 
             // Navbar scroll effect
             let scrolled = false;
-        window.addEventListener('scroll', () => {
+            window.addEventListener('scroll', () => {
                 const nav = document.getElementById('navbar');
                 const shouldScroll = window.scrollY > 50;
 
@@ -599,7 +689,7 @@
                     if (scrolled) {
                         nav.classList.add('bg-white/90', 'backdrop-blur-md', 'border-b', 'border-gray-100');
                         nav.classList.remove('bg-transparent');
-            } else {
+                    } else {
                         nav.classList.remove('bg-white/90', 'backdrop-blur-md', 'border-b', 'border-gray-100');
                         nav.classList.add('bg-transparent');
                     }

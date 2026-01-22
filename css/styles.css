@@ -1,22 +1,22 @@
-/* Swiss Data Atlas - Main Stylesheet */
-@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;400;500;600;700;800;900&family=Syne:wght@400;500;600;700;800&display=swap');
+/* the recruiter - Main Stylesheet */
+/* Helvetica Neue is a system font, no external loading needed */
 
 /* Base Styles */
 body {
     background-color: #ffffff;
     color: #101010;
-    font-family: 'Darker Grotesque', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
     font-size: 18px;
     font-weight: 500;
     line-height: 1.3em;
     scroll-behavior: smooth;
 }
 
-/* Typography */
+/* Typography - All using Helvetica Neue */
 h1 {
     margin-top: 0;
     margin-bottom: 0;
-    font-family: 'Syne', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
     font-size: 50px;
     font-weight: 600;
     line-height: 1.25em;
@@ -25,7 +25,7 @@ h1 {
 h2 {
     margin-top: 0;
     margin-bottom: 0;
-    font-family: 'Syne', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
     font-size: 56px;
     font-weight: 600;
     line-height: 1em;
@@ -34,7 +34,7 @@ h2 {
 h3 {
     margin-top: 0;
     margin-bottom: 0;
-    font-family: 'Syne', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
     font-size: 36px;
     font-weight: 600;
     line-height: 1.25em;
@@ -45,14 +45,14 @@ h5,
 h6 {
     margin-top: 0;
     margin-bottom: 0;
-    font-family: 'Syne', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
     font-weight: 600;
     line-height: 1.25em;
 }
 
 p {
     margin-bottom: 0;
-    font-family: 'Darker Grotesque', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
     font-size: 18px;
     font-weight: 500;
     line-height: 1.3em;
@@ -71,7 +71,7 @@ a {
     line-height: 1.09em;
     margin-top: 0;
     margin-bottom: 0;
-    font-family: 'Syne', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 }
 
 .heading__1.heading-light {
@@ -83,7 +83,7 @@ a {
     line-height: 1em;
     margin-top: 0;
     margin-bottom: 0;
-    font-family: 'Syne', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
     font-weight: 600;
     color: #101010;
 }
@@ -157,7 +157,7 @@ a {
     text-transform: uppercase;
     border-radius: 9999px;
     padding: 18px 40px;
-    font-family: 'Syne', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
     font-size: 15px;
     font-weight: 500;
     line-height: 1.2em;
@@ -183,7 +183,7 @@ a {
     color: #ffffff;
     border-radius: 9999px;
     padding: 18px 40px;
-    font-family: 'Syne', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
     font-size: 15px;
     font-weight: 500;
     line-height: 1.2em;
@@ -208,7 +208,7 @@ a {
 .nav-link-webflow {
     color: #ffffff;
     text-transform: uppercase;
-    font-family: 'Syne', sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
     font-size: 13px;
     font-weight: 500;
     text-decoration: none;
@@ -266,7 +266,7 @@ nav.nav-scrolled .language-switcher button.active {
 .section-tag {
     color: #0095f2;
     text-transform: uppercase;
-    font-family: 'Syne', sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
     font-size: 13px;
     font-weight: 500;
     letter-spacing: 0.08em;
@@ -295,7 +295,7 @@ nav.nav-scrolled .language-switcher button.active {
     color: #ffffff;
     text-decoration: none;
     text-transform: uppercase;
-    font-family: 'Syne', sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
     font-size: 14px;
     font-weight: 500;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -331,7 +331,7 @@ nav.nav-scrolled .language-switcher button.active {
     padding: 8px 16px;
     z-index: 100;
     text-decoration: none;
-    font-family: 'Syne', sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
     font-size: 14px;
 }
 
