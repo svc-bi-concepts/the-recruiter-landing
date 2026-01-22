@@ -1,0 +1,13 @@
+# GitHub Pages configuration
+# This file prevents Jekyll from processing certain files
+
+# Exclude files and directories from processing
+exclude:
+  - README.md
+  - .gitignore
+  - .github
+  - node_modules
+  - package.json
+  - package-lock.json
+
+# Keep .nojekyll to tell GitHub Pages not to use Jekyll

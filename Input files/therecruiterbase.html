@@ -1,0 +1,434 @@
+import React, { useState, useEffect } from 'react';
+import {
+Users,
+Briefcase,
+ShieldCheck,
+Clock,
+CheckCircle2,
+Mail,
+Phone,
+ArrowRight,
+FileText,
+Minus
+} from 'lucide-react';
+
+// Logo Komponente: Helvetica Neue Bold, kleinbuchstaben, minimaler Zeilenabstand, "the" eingerückt
+const Logo = ({ light = false }) => (
+<div className={`flex flex-col leading-[0.5] ${light ? 'text-white' : 'text-black' }`} style={{
+    fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' , textTransform: 'lowercase' }}>
+    <span className="text-4xl font-bold ml-6 tracking-tight">the</span>
+    <span className="text-4xl font-bold tracking-tight">recruiter</span>
+</div>
+);
+
+const content = {
+de: {
+nav: {
+services: "Dienstleistungen",
+whyUs: "Über uns",
+contact: "Kontakt",
+},
+hero: {
+tag: "People Business Expert",
+title: <>Präzision in der <br /> Personalvermittlung.</>,
+subtitle: "Wir verbinden Schnelligkeit mit Schweizer Compliance. Effiziente Lösungen für alle Personalmodelle.",
+cta: "Jetzt kontaktieren",
+},
+challenges: {
+title: "Herausforderungen & Lösungen",
+subtitle: "Die Komplexität des modernen Arbeitsmarktes einfach gelöst.",
+items: [
+{
+id: 1,
+problem: "Fachkräftemangel",
+problemDesc: "Der Bedarf an Fachkräften übersteigt das Angebot, was die Sicherung von Experten erschwert.",
+solution: "Structured Recruiting",
+solutionDesc: "Klarer Prozess vom Briefing bis zur Platzierung über einen riesigen Talentpool.",
+result: "Schneller Zugang",
+resultDesc: "Kunden sichern sich Spezialisten schneller und verkürzen Einstellungszyklen.",
+icon: Users
+},
+{
+id: 2,
+problem: "Regulierung",
+problemDesc: "Strenge Regeln für Personalverleih erfordern saubere und compliant Prozesse.",
+solution: "Compliance Management",
+solutionDesc: "Übernahme von Verträgen, Payroll und Verleihpflichten durch unser autorisiertes Modell.",
+result: "Risikominimierung",
+resultDesc: "Vereinfachte Administration und deutlich geringeres rechtliches Risiko.",
+icon: ShieldCheck
+},
+{
+id: 3,
+problem: "Kapazitätsdruck",
+problemDesc: "Wachsende Projektanforderungen übersteigen oft die internen Kapazitäten.",
+solution: "Flexible Staffing",
+solutionDesc: "Einsatz von Spezialisten direkt in Ihren Projekten über Subcontracting oder Leasing.",
+result: "Stabile Lieferung",
+resultDesc: "Kapazitäten bleiben stabil, Engpässe werden verhindert und Projekte geliefert.",
+icon: Clock
+}
+]
+},
+services: {
+title: "Unsere Kompetenzen",
+items: [
+{
+title: "Permanent Placement",
+desc: "Strukturierte Identifikation und Vermittlung von Festangestellten.",
+icon: Users
+},
+{
+title: "Subcontracting",
+desc: "Integration externer Spezialisten Ihrer Wahl in Ihre Projektstrukturen.",
+icon: Briefcase
+},
+{
+title: "Labour Leasing",
+desc: "Rechtssicherer Personalverleih über unser autorisiertes Modell.",
+icon: FileText
+},
+{
+title: "Payrolling",
+desc: "Übernahme der administrativen Lohn- und Arbeitgeberverantwortung.",
+icon: CheckCircle2
+}
+]
+},
+why: {
+title: "Warum the recruiter?",
+text: "Wir vereinen Geschwindigkeit und Zuverlässigkeit. Unser Netzwerk ermöglicht es uns, Spezialisten schneller zu
+identifizieren als herkömmliche Suchprozesse – bei 100%iger Einhaltung aller regulatorischen Vorgaben.",
+},
+contact: {
+title: "Lassen Sie uns starten.",
+subtitle: "Wir freuen uns auf Ihre Nachricht oder Ihren Anruf.",
+footer: "the-recruiter.ch ist eine Marke von bi-concepts.ch"
+}
+},
+en: {
+nav: {
+services: "Services",
+whyUs: "About",
+contact: "Contact",
+},
+hero: {
+tag: "People Business Experts",
+title: <>Precision in <br /> Recruitment.</>,
+subtitle: "Combining speed with Swiss compliance. Efficient solutions for all staffing models.",
+cta: "Get in touch",
+},
+challenges: {
+title: "Challenges & Solutions",
+subtitle: "Solving the complexities of the modern labor market.",
+items: [
+{
+id: 1,
+problem: "Talent Shortage",
+problemDesc: "Demand for specialized professionals exceeds supply, making it hard to secure expertise.",
+solution: "Structured Recruiting",
+solutionDesc: "Clear process from briefing to placement using a large talent network.",
+result: "Faster Access",
+resultDesc: "Secure specialists faster and shorten your overall hiring cycles.",
+icon: Users
+},
+{
+id: 2,
+problem: "Regulation",
+problemDesc: "Strict rules for labor leasing and contracting require compliant processes.",
+solution: "Compliance Management",
+solutionDesc: "Handling contracts, payroll and leasing duties via our authorized model.",
+result: "Reduced Risk",
+resultDesc: "Simplified administration and significantly lower legal exposure.",
+icon: ShieldCheck
+},
+{
+id: 3,
+problem: "Capacity Pressure",
+problemDesc: "Growing project demands often outpace internal capacity and delivery.",
+solution: "Flexible Staffing",
+solutionDesc: "Deploying specialists directly to your projects via subcontracting or leasing.",
+result: "Stable Delivery",
+resultDesc: "Maintain capacity, prevent bottlenecks and support on-time delivery.",
+icon: Clock
+}
+]
+},
+services: {
+title: "Our Expertise",
+items: [
+{
+title: "Permanent Placement",
+desc: "Structured identification and placement of permanent employees.",
+icon: Users
+},
+{
+title: "Subcontracting",
+desc: "Deploying external specialists of your choice directly to your projects.",
+icon: Briefcase
+},
+{
+title: "Labour Leasing",
+desc: "Compliant labor leasing via our authorized licensing model.",
+icon: FileText
+},
+{
+title: "Payrolling",
+desc: "Assuming employer and payroll responsibility for your selected staff.",
+icon: CheckCircle2
+}
+]
+},
+why: {
+title: "Why the recruiter?",
+text: "We combine speed with reliability. Our network allows us to identify specialists faster than traditional search
+processes – ensuring 100% compliance with all regulations.",
+},
+contact: {
+title: "Let's get started.",
+subtitle: "We look forward to your message or call.",
+footer: "the-recruiter.ch is a trademark of bi-concepts.ch"
+}
+}
+};
+
+const App = () => {
+const [lang, setLang] = useState('de');
+const t = content[lang];
+
+const [scrolled, setScrolled] = useState(false);
+useEffect(() => {
+const handleScroll = () => setScrolled(window.scrollY > 50);
+window.addEventListener('scroll', handleScroll);
+return () => window.removeEventListener('scroll', handleScroll);
+}, []);
+
+return (
+<div className="min-h-screen bg-white text-black font-sans antialiased selection:bg-black selection:text-white tracking-widest"
+    lang={lang}>
+    {/* Navbar */}
+    <nav className={`fixed w-full z-50 transition-all duration-500 ${scrolled
+        ? 'bg-white/90 backdrop-blur-md border-b border-gray-100 py-4' : 'bg-transparent py-8' }`}>
+        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <Logo />
+
+            <div className="hidden md:flex items-center gap-10">
+                <div className="flex gap-8 text-[11px] font-bold uppercase tracking-[0.3em] text-black">
+                    <a href="#services" className="hover:text-gray-400 transition-colors">{t.nav.services}</a>
+                    <a href="#why" className="hover:text-gray-400 transition-colors">{t.nav.whyUs}</a>
+                </div>
+                <div className="h-4 w-[1px] bg-gray-200" />
+                <button onClick={()=> setLang(lang === 'de' ? 'en' : 'de')}
+                    className="text-[10px] font-black border border-black px-2 py-1 hover:bg-black hover:text-white
+                    transition-all uppercase"
+                    >
+                    {lang === 'de' ? 'EN' : 'DE'}
+                </button>
+                <a href="#contact"
+                    className="text-[11px] font-bold border-b-2 border-black pb-1 hover:text-gray-500 hover:border-gray-500 transition-all uppercase">
+                    {t.nav.contact}
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    {/* Hero Section - Aligned to top */}
+    <section className="relative min-h-screen flex items-start pt-48 pb-16 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 w-full">
+            <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-0">
+
+                {/* Linke Seite: Text - Vertikal oben ausgerichtet */}
+                <div className="w-full lg:w-3/5 xl:w-1/2 z-10 text-center lg:text-left lg:pr-16 xl:pr-24">
+                    <div className="flex items-center justify-center lg:justify-start gap-3 mb-10">
+                        <div className="w-8 h-[1px] bg-black" />
+                        <span
+                            className="text-[10px] font-bold uppercase tracking-[0.5em] text-gray-400">{t.hero.tag}</span>
+                    </div>
+
+                    <h1
+                        className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black tracking-normal mb-12 leading-[1.1] text-black lg:max-w-none">
+                        {t.hero.title}
+                    </h1>
+
+                    <p
+                        className="text-lg md:text-xl text-gray-500 mb-14 max-w-md mx-auto lg:mx-0 leading-relaxed font-medium tracking-wide">
+                        {t.hero.subtitle}
+                    </p>
+
+                    <a href="#contact"
+                        className="inline-flex items-center gap-6 bg-black text-white px-10 py-5 group hover:bg-gray-800 transition-all shadow-2xl">
+                        <span className="text-sm font-bold uppercase tracking-[0.3em]">{t.hero.cta}</span>
+                        <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />
+                    </a>
+                </div>
+
+                {/* Rechte Seite: Bild */}
+                <div className="w-full lg:w-2/5 xl:w-1/2 relative flex justify-center lg:justify-end">
+                    <div
+                        className="aspect-[1/1] lg:aspect-[4/5] w-full max-w-md lg:max-w-full bg-gray-50 overflow-hidden grayscale relative shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)]">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200"
+                            alt="[Bild eines modernen Büros]" className="w-full h-full object-cover" />
+                        <div className="absolute inset-0 bg-black/5 mix-blend-overlay" />
+                    </div>
+
+                    {/* Floating Badge */}
+                    <div
+                        className="absolute -bottom-8 -left-8 w-40 h-40 bg-black p-10 hidden xl:flex flex-col justify-center items-center z-20">
+                        <span
+                            className="text-white text-[9px] font-bold uppercase tracking-[0.4em] text-center mb-1 opacity-50">Swiss</span>
+                        <div className="w-full h-px bg-white/20 mb-4" />
+                        <span
+                            className="text-white text-[11px] font-black uppercase tracking-[0.2em] text-center leading-tight">Quality
+                            <br /> Standard</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    {/* Challenges & Solutions aligned grid - Everything vertically aligned to top */}
+    <section className="py-32 bg-gray-50 border-y border-gray-100">
+        <div className="max-w-7xl mx-auto px-6">
+            <div className="mb-24 flex flex-col items-center lg:items-start text-center lg:text-left">
+                <h2 className="text-4xl md:text-5xl font-black tracking-normal mb-6">{t.challenges.title}</h2>
+                <p className="text-gray-400 uppercase text-[9px] tracking-[0.4em] font-bold">{t.challenges.subtitle}</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+                {t.challenges.items.map((item) => (
+                <div key={item.id}
+                    className="bg-white p-12 flex flex-col border border-gray-100 hover:shadow-2xl transition-all duration-500 group relative">
+
+                    {/* Problem Section */}
+                    <div className="mb-10">
+                        <span
+                            className="text-[9px] font-black uppercase tracking-[0.4em] text-gray-400 block mb-3 border-l-2 border-gray-200 pl-3">Problem</span>
+                        <h3 className="text-xl font-bold tracking-tight text-gray-900 leading-tight mb-3">{item.problem}
+                        </h3>
+                        <p className="text-gray-500 text-sm leading-relaxed font-light">{item.problemDesc}</p>
+                    </div>
+
+                    {/* Solution Section */}
+                    <div className="mb-10">
+                        <span
+                            className="text-[9px] font-black uppercase tracking-[0.4em] text-black block mb-3 border-l-2 border-black pl-3">Solution</span>
+                        <h4 className="text-xl font-bold tracking-tight text-gray-900 leading-tight mb-3">
+                            {item.solution}</h4>
+                        <p className="text-gray-500 text-sm leading-relaxed font-light">{item.solutionDesc}</p>
+                    </div>
+
+                    {/* Result Section - Removed mt-auto to keep it aligned to the top content */}
+                    <div className="pt-10 border-t border-gray-50">
+                        <span
+                            className="text-[9px] font-black uppercase tracking-[0.4em] text-emerald-600 block mb-3 border-l-2 border-emerald-600 pl-3">Result</span>
+                        <h4 className="text-2xl font-black mb-3 tracking-normal uppercase leading-tight">{item.result}
+                        </h4>
+                        <p className="text-gray-600 text-sm leading-relaxed font-medium">{item.resultDesc}</p>
+                    </div>
+                </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    {/* Services Grid */}
+    <section id="services" className="py-32 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+            <div className="flex flex-col items-center text-center mb-24">
+                <h2 className="text-5xl font-black tracking-normal mb-6">{t.services.title}</h2>
+                <div className="w-24 h-2 bg-black" />
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-gray-100 border border-gray-100">
+                {t.services.items.map((service, idx) => (
+                <div key={idx}
+                    className="bg-white p-12 hover:bg-black hover:text-white transition-all duration-500 group flex flex-col min-h-[420px]">
+                    <div className="mb-14 text-gray-300 group-hover:text-white transition-colors">
+                        <service.icon size={48} strokeWidth={1} />
+                    </div>
+                    <h3 className="text-xl font-black uppercase tracking-[0.1em] mb-6 leading-tight">{service.title}
+                    </h3>
+                    <p className="text-sm opacity-60 leading-relaxed font-medium tracking-wide">{service.desc}</p>
+                </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    {/* Brand Statement */}
+    <section id="why" className="py-48 bg-black text-white relative overflow-hidden">
+        <div className="max-w-4xl mx-auto px-6 relative z-10">
+            <h2 className="text-3xl md:text-5xl font-light tracking-wide leading-snug mb-16 opacity-90 italic">
+                "{t.why.text}"
+            </h2>
+            <div className="flex items-center gap-8">
+                <div className="w-20 h-px bg-white/20" />
+                <span className="text-[10px] uppercase tracking-[0.6em] font-black text-white/40">{t.why.title}</span>
+            </div>
+        </div>
+        <div
+            className="absolute bottom-0 right-0 translate-y-1/4 text-[30vw] font-black text-white/[0.02] whitespace-nowrap pointer-events-none select-none">
+            PEOPLE
+        </div>
+    </section>
+
+    {/* Contact Section */}
+    <section id="contact" className="py-48 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
+                <div className="text-center lg:text-left pt-6">
+                    <h2 className="text-6xl md:text-8xl font-black tracking-normal mb-10 leading-none">{t.contact.title}
+                    </h2>
+                    <p className="text-2xl text-gray-400 font-medium mb-4 tracking-wide">{t.contact.subtitle}</p>
+                </div>
+
+                <div className="flex flex-col gap-8 w-full">
+                    <a href="mailto:info@the-recruiter.ch"
+                        className="group flex flex-col gap-4 p-12 border border-gray-100 hover:border-black hover:shadow-2xl transition-all duration-500">
+                        <span
+                            className="text-[10px] uppercase tracking-[0.5em] font-black text-gray-300 group-hover:text-black transition-colors">E-Mail
+                            Address</span>
+                        <span
+                            className="text-2xl md:text-3xl font-black tracking-normal underline underline-offset-8 decoration-gray-200 group-hover:decoration-black transition-all">info@the-recruiter.ch</span>
+                    </a>
+
+                    <a href="tel:+41793160037"
+                        className="group flex flex-col gap-4 p-12 border border-gray-100 hover:border-black hover:shadow-2xl transition-all duration-500">
+                        <span
+                            className="text-[10px] uppercase tracking-[0.5em] font-black text-gray-300 group-hover:text-black transition-colors">Phone
+                            Support</span>
+                        <span
+                            className="text-2xl md:text-3xl font-black tracking-normal underline underline-offset-8 decoration-gray-200 group-hover:decoration-black transition-all">+41
+                            79 316 00 37</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {/* Footer */}
+    <footer className="py-20 bg-white border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-12">
+            <Logo />
+
+            <div
+                className="flex flex-wrap justify-center gap-12 text-[10px] font-black uppercase tracking-[0.3em] text-gray-400">
+                <a href="#" className="hover:text-black transition-colors">Impressum</a>
+                <a href="#" className="hover:text-black transition-colors">Datenschutz</a>
+                <a href="https://bi-concepts.ch" target="_blank"
+                    className="text-black underline underline-offset-4 decoration-gray-200 hover:decoration-black transition-all">bi-concepts.ch</a>
+            </div>
+        </div>
+        <div
+            className="max-w-7xl mx-auto px-6 mt-16 pt-10 border-t border-gray-50 flex flex-col md:flex-row justify-between items-center gap-4">
+            <span className="text-[9px] uppercase tracking-[0.5em] text-gray-300 font-bold">© {new Date().getFullYear()}
+                the recruiter</span>
+            <span className="text-[9px] uppercase tracking-[0.3em] text-gray-300 font-bold">{t.contact.footer}</span>
+        </div>
+    </footer>
+</div>
+);
+};
+
+export default App;

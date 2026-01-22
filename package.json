@@ -1,0 +1,22 @@
+{
+    "name": "the-recruiter",
+    "version": "1.0.0",
+    "description": "the recruiter - People Business Expert Landing Page",
+    "scripts": {
+        "build:css": "tailwindcss -i ./css/input.css -o ./css/tailwind.css --minify",
+        "watch:css": "tailwindcss -i ./css/input.css -o ./css/tailwind.css --watch",
+        "build": "npm run build:css",
+        "dev": "npm run watch:css"
+    },
+    "devDependencies": {
+        "tailwindcss": "^3.4.0"
+    },
+    "keywords": [
+        "recruitment",
+        "staffing",
+        "switzerland",
+        "bi-concepts"
+    ],
+    "author": "BI Concepts",
+    "license": "PROPRIETARY"
+}

@@ -1,0 +1,353 @@
+/* Swiss Data Atlas - Main Stylesheet */
+@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;400;500;600;700;800;900&family=Syne:wght@400;500;600;700;800&display=swap');
+
+/* Base Styles */
+body {
+    background-color: #ffffff;
+    color: #101010;
+    font-family: 'Darker Grotesque', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.3em;
+    scroll-behavior: smooth;
+}
+
+/* Typography */
+h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: 'Syne', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 50px;
+    font-weight: 600;
+    line-height: 1.25em;
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: 'Syne', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 56px;
+    font-weight: 600;
+    line-height: 1em;
+}
+
+h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: 'Syne', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 1.25em;
+}
+
+h4,
+h5,
+h6 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: 'Syne', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 600;
+    line-height: 1.25em;
+}
+
+p {
+    margin-bottom: 0;
+    font-family: 'Darker Grotesque', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.3em;
+}
+
+a {
+    text-decoration: underline;
+}
+
+/* Heading Classes */
+.heading__1 {
+    color: var(--black, #101010);
+    text-transform: uppercase;
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 1.09em;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: 'Syne', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.heading__1.heading-light {
+    color: #ffffff;
+}
+
+.heading__2 {
+    font-size: 56px;
+    line-height: 1em;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: 'Syne', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 600;
+    color: #101010;
+}
+
+/* Responsive Typography */
+@media (max-width: 991px) {
+    .heading__1 {
+        font-size: 50px;
+    }
+
+    .heading__2 {
+        font-size: 44px;
+    }
+}
+
+@media (max-width: 767px) {
+    .heading__1 {
+        font-size: 36px;
+    }
+
+    .heading__2 {
+        font-size: 30px;
+    }
+}
+
+/* Background & Effects */
+.gradient-bg {
+    background: linear-gradient(150deg, #050a32 0%, #3a199c 50%, #050a32 100%);
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Utility Classes */
+.hyphenate {
+    hyphens: auto;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    height: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+/* Colors */
+.primary-accent {
+    background-color: #0095f2;
+}
+
+.primary-accent:hover {
+    background-color: #3c0089;
+}
+
+/* Buttons */
+.button-webflow {
+    border: 1px solid #0095f2;
+    text-align: center;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-radius: 9999px;
+    padding: 18px 40px;
+    font-family: 'Syne', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.2em;
+    color: #0095f2;
+    background-color: transparent;
+    text-decoration: none;
+    transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.button-webflow:hover {
+    background-color: #0095f2;
+    color: #ffffff;
+}
+
+.button-webflow-filled {
+    border: 1px solid #0095f2;
+    background-color: #0095f2;
+    color: #ffffff;
+    border-radius: 9999px;
+    padding: 18px 40px;
+    font-family: 'Syne', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.2em;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.button-webflow-filled:hover {
+    background-color: #3c0089;
+    border-color: #3c0089;
+    color: #ffffff;
+}
+
+/* Navigation */
+.nav-link-webflow {
+    color: #ffffff;
+    text-transform: uppercase;
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+    padding: 10px 15px;
+}
+
+.nav-link-webflow:hover {
+    color: #7bdaff;
+}
+
+/* Navigation Scrolled State */
+nav.nav-scrolled {
+    background-color: #050a32 !important;
+    backdrop-filter: blur(10px);
+}
+
+nav.nav-scrolled .nav-link-webflow {
+    color: #ffffff;
+}
+
+nav.nav-scrolled .nav-link-webflow:hover {
+    color: #7bdaff;
+}
+
+nav.nav-scrolled .nav-logo-text {
+    color: #ffffff !important;
+}
+
+nav.nav-scrolled .button-webflow {
+    border-color: #0095f2;
+    color: #0095f2;
+    background-color: transparent;
+}
+
+nav.nav-scrolled .button-webflow:hover {
+    background-color: #0095f2;
+    color: #ffffff;
+}
+
+nav.nav-scrolled .language-switcher {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+nav.nav-scrolled .language-switcher button {
+    color: #ffffff !important;
+}
+
+nav.nav-scrolled .language-switcher button.active {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    color: #ffffff !important;
+}
+
+/* Section Tag */
+.section-tag {
+    color: #0095f2;
+    text-transform: uppercase;
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    background-color: #050a32;
+    padding: 20px;
+    z-index: 40;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-menu.active {
+    display: block;
+}
+
+.mobile-menu a {
+    display: block;
+    padding: 15px 0;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Syne', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-menu a:hover {
+    color: #7bdaff;
+}
+
+.hamburger-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+@media (max-width: 767px) {
+    .hamburger-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Skip to Content - Accessibility */
+.skip-to-content {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #0095f2;
+    color: white;
+    padding: 8px 16px;
+    z-index: 100;
+    text-decoration: none;
+    font-family: 'Syne', sans-serif;
+    font-size: 14px;
+}
+
+.skip-to-content:focus {
+    top: 0;
+}
+
+/* Improved contrast for dark backgrounds */
+.text-slate-improved {
+    color: #94a3b8;
+    /* slate-400 but slightly lighter for better contrast */
+}
+
+@media (prefers-color-scheme: dark) {
+    .text-slate-improved {
+        color: #cbd5e1;
+        /* Even lighter for dark mode */
+    }
+}

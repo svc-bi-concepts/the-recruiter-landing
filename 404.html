@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Page Not Found | Swiss Data Atlas</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+
+  <!-- Font Preloading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;400;500;600;700;800;900&family=Syne:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;400;500;600;700;800;900&family=Syne:wght@400;500;600;700;800&display=swap">
+
+  <!-- External Stylesheets -->
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Built Tailwind CSS (production) -->
+  <link rel="stylesheet" href="css/tailwind.css">
+  <!-- Tailwind CDN fallback for development -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="min-h-screen flex flex-col">
+  <!-- Navigation -->
+  <nav class="fixed w-full z-50 bg-slate-900 backdrop-blur-md" style="height: 80px;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+      <div class="flex justify-between h-full items-center">
+        <a href="index.html" class="flex items-center space-x-2 min-w-0">
+          <img src="images/logo-bc.svg" alt="Swiss Data Atlas" class="h-9 w-9 flex-shrink-0" />
+          <span class="nav-logo-text font-bold text-base sm:text-lg tracking-tight text-white truncate"
+            style="font-family: 'Syne', sans-serif;">Swiss Data Atlas</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="flex-1 flex items-center justify-center gradient-bg pt-20">
+    <div class="text-center px-4 py-20">
+      <div class="glass-card rounded-3xl p-10 sm:p-16 max-w-lg mx-auto border border-white/10">
+        <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-8"
+          style="background-color: rgba(0, 149, 242, 0.2);">
+          <i data-lucide="file-question" class="w-10 h-10" style="color: #0095f2;"></i>
+        </div>
+        <h1 class="text-6xl sm:text-8xl font-bold text-white mb-4" style="font-family: 'Syne', sans-serif;">404</h1>
+        <h2 class="text-xl sm:text-2xl font-semibold text-white mb-4" style="font-family: 'Syne', sans-serif;"
+          id="error-title">Seite nicht gefunden</h2>
+        <p class="text-slate-300 mb-8 text-base sm:text-lg" id="error-desc">Die angeforderte Seite existiert leider
+          nicht oder wurde verschoben.</p>
+        <a href="index.html" class="button-webflow-filled inline-flex items-center">
+          <i data-lucide="home" class="mr-2 w-5 h-5"></i>
+          <span id="back-home">Zur Startseite</span>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-slate-400 py-8 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-base">
+      <span>© 2026 <a href="https://www.bi-concepts.ch" target="_blank" rel="noopener noreferrer"
+          class="hover:text-white transition-colors underline">BI Concepts</a>. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+
+    // Check stored language preference
+    const storedLang = localStorage.getItem('sda-lang') || 'de';
+
+    if (storedLang === 'en') {
+      document.getElementById('error-title').textContent = 'Page Not Found';
+      document.getElementById('error-desc').textContent = 'The requested page does not exist or has been moved.';
+      document.getElementById('back-home').textContent = 'Back to Home';
+      document.documentElement.lang = 'en';
+    }
+  </script>
+</body>
+
+</html>
