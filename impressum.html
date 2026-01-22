@@ -4,22 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impressum | Swiss Data Atlas</title>
+    <title>Impressum | the recruiter</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
     <link rel="alternate icon" href="images/favicon.svg">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://swissdataatlas.ch/impressum.html">
+    <link rel="canonical" href="https://www.the-recruiter.ch/impressum.html">
 
-    <!-- Font Preloading for Performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style"
-        href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;400;500;600;700;800;900&family=Syne:wght@400;500;600;700;800&display=swap">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;400;500;600;700;800;900&family=Syne:wght@400;500;600;700;800&display=swap">
+    <!-- Helvetica Neue is a system font, no external loading needed -->
 
     <!-- External Stylesheets -->
     <link rel="stylesheet" href="css/styles.css">
@@ -28,89 +22,164 @@
     <!-- Tailwind CDN fallback for development -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Global font - Helvetica Neue for everything */
+        * {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #000000;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+            scroll-behavior: smooth;
+        }
+
+        /* Force Helvetica Neue on all typography elements */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        a,
+        span,
+        div,
+        button,
+        input,
+        textarea,
+        select,
+        label {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+        }
+
+        /* Logo styling - Helvetica Neue, lowercase, minimal line height */
+        .logo {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            text-transform: lowercase;
+            line-height: 0.5;
+        }
+
+        .logo-light {
+            color: #ffffff;
+        }
+
+        .logo-dark {
+            color: #000000;
+        }
+    </style>
 </head>
 
-<body class="min-h-screen flex flex-col">
+<body class="min-h-screen bg-white text-black antialiased">
     <!-- Skip to Content Link for Accessibility -->
     <a href="#main-content" class="skip-to-content">Skip to main content</a>
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-slate-900 backdrop-blur-md" style="height: 80px;">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
-            <div class="flex justify-between h-full items-center">
-                <a href="index.html" class="flex items-center space-x-2 min-w-0">
-                    <img src="images/logo-bc.svg" alt="Swiss Data Atlas" class="h-9 w-9 flex-shrink-0" />
-                    <span class="nav-logo-text font-bold text-base sm:text-lg tracking-tight text-white truncate"
-                        style="font-family: 'Syne', sans-serif;">Swiss Data Atlas</span>
-                </a>
+    <nav class="fixed w-full z-50 bg-white transition-all duration-500" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+            <!-- Logo -->
+            <a href="index.html" class="logo logo-dark flex flex-col leading-[0.5]">
+                <span class="text-4xl font-bold ml-6 tracking-tight">the</span>
+                <span class="text-4xl font-bold tracking-tight">recruiter</span>
+            </a>
 
-                <div class="flex items-center space-x-2 sm:space-x-4">
-                    <!-- Language Switcher -->
-                    <div class="language-switcher flex bg-white/10 backdrop-blur-sm p-0.5 sm:p-1 rounded-lg text-[10px] sm:text-xs font-bold flex-shrink-0">
-                        <button onclick="setLang('de')" id="btn-de"
-                            class="active px-2 sm:px-3 py-1 rounded-md transition-all bg-white/20 text-white border border-transparent">DE</button>
-                        <button onclick="setLang('en')" id="btn-en"
-                            class="px-2 sm:px-3 py-1 rounded-md transition-all text-white/60 hover:text-white border border-transparent">EN</button>
-                    </div>
-
-                    <a href="index.html" class="button-webflow text-sm">
-                        <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i>
-                        <span data-t="back-home"></span>
-                    </a>
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center gap-10">
+                <div class="flex gap-8 text-[11px] font-bold uppercase tracking-[0.3em] text-black">
+                    <a href="index.html#services" class="hover:text-gray-400 transition-colors" data-t="nav-services"></a>
+                    <a href="index.html#why" class="hover:text-gray-400 transition-colors" data-t="nav-whyUs"></a>
                 </div>
+                <div class="h-4 w-[1px] bg-gray-200"></div>
+                <button onclick="toggleLang()" id="lang-btn"
+                    class="text-[10px] font-black border border-black px-2 py-1 hover:bg-black hover:text-white transition-all uppercase">
+                    <span id="lang-text">EN</span>
+                </button>
+                <a href="index.html#contact" data-t="nav-contact"
+                    class="text-[11px] font-bold border-b-2 border-black pb-1 hover:text-gray-500 hover:border-gray-500 transition-all uppercase"></a>
             </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu"
+                id="mobile-menu-btn">
+                <i data-lucide="menu" class="w-6 h-6 text-black" id="menu-icon"></i>
+            </button>
         </div>
     </nav>
 
+    <!-- Mobile Menu -->
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 md:hidden">
+        <div class="flex flex-col items-center justify-center h-full gap-8">
+            <a href="index.html#services" data-t="nav-services" onclick="closeMobileMenu()"
+                class="text-2xl font-bold uppercase tracking-wider"></a>
+            <a href="index.html#why" data-t="nav-whyUs" onclick="closeMobileMenu()"
+                class="text-2xl font-bold uppercase tracking-wider"></a>
+            <a href="index.html#contact" data-t="nav-contact" onclick="closeMobileMenu()"
+                class="text-2xl font-bold uppercase tracking-wider"></a>
+            <button onclick="toggleLang(); closeMobileMenu();"
+                class="text-xl font-black border-2 border-black px-4 py-2 uppercase">
+                <span id="lang-text-mobile">EN</span>
+            </button>
+        </div>
+    </div>
+
     <!-- Page Header -->
-    <header class="pt-32 pb-12 gradient-bg text-white">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="heading__1 heading-light" data-t="page-title"></h1>
+    <header class="pt-32 pb-16 bg-white">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold tracking-tight text-black mb-4" data-t="page-title"></h1>
         </div>
     </header>
 
     <!-- Main Content -->
     <main id="main-content" class="flex-1 py-12 sm:py-16 bg-white">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto px-6">
             <div class="prose prose-lg max-w-none">
-                <p class="text-lg text-slate-600 mb-6" data-t="intro"></p>
+                <p class="text-lg text-gray-600 mb-8" data-t="intro"></p>
                 
-                <div class="space-y-4 text-slate-700">
-                    <p>
-                        <strong data-t="publisher-label"></strong><br>
+                <div class="space-y-6 text-gray-700">
+                    <div>
+                        <strong class="text-black" data-t="publisher-label"></strong><br>
                         BI Concepts<br>
                         Oberdorfstrasse 13<br>
                         8808 Pfäffikon<br>
                         <span data-t="country"></span>
-                    </p>
+                    </div>
                     
-                    <p>
-                        <strong>E-Mail:</strong>
-                        <a href="mailto:sda@bi-concepts.ch" class="text-[#0095f2] hover:underline">sda@bi-concepts.ch</a>
-                    </p>
+                    <div>
+                        <strong class="text-black">E-Mail:</strong>
+                        <a href="mailto:info@the-recruiter.ch" class="text-black hover:text-gray-500 underline">info@the-recruiter.ch</a>
+                    </div>
                     
-                    <p>
-                        <strong data-t="last-modified-label"></strong> 14.01.2026
-                    </p>
+                    <div>
+                        <strong class="text-black" data-t="last-modified-label"></strong> <span id="current-date"></span>
+                    </div>
                 </div>
             </div>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center text-base">
-            <div class="flex items-center space-x-3 mb-4 md:mb-0">
-                <img src="images/logo-bc.svg" alt="Swiss Data Atlas" class="w-7 h-7" loading="lazy" />
-                <span class="font-bold text-white text-lg">Swiss Data Atlas</span>
-                <span>© 2026 <a href="https://www.bi-concepts.ch" target="_blank" rel="noopener noreferrer"
-                        class="hover:text-white transition-colors underline">BI Concepts</a>.</span>
+    <footer class="py-20 bg-black text-white border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-12">
+            <div class="logo logo-light flex flex-col leading-[0.5]">
+                <span class="text-4xl font-bold ml-6 tracking-tight">the</span>
+                <span class="text-4xl font-bold tracking-tight">recruiter</span>
             </div>
-            <div class="flex space-x-8">
+
+            <div
+                class="flex flex-wrap justify-center gap-12 text-[10px] font-black uppercase tracking-[0.3em] text-gray-400">
                 <a href="impressum.html" class="hover:text-white transition-colors text-white" data-t="footer-impressum"></a>
                 <a href="privacy-policy.html" class="hover:text-white transition-colors" data-t="footer-privacy"></a>
-                <a href="terms-and-conditions.html" class="hover:text-white transition-colors" data-t="footer-terms"></a>
+                <a href="https://bi-concepts.ch" target="_blank" rel="noopener noreferrer"
+                    class="text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition-all">bi-concepts.ch</a>
             </div>
+        </div>
+        <div
+            class="max-w-7xl mx-auto px-6 mt-16 pt-10 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
+            <span class="text-[9px] uppercase tracking-[0.5em] text-gray-400 font-bold">© <span
+                    id="current-year"></span> the recruiter</span>
+            <span class="text-[9px] uppercase tracking-[0.3em] text-gray-400 font-bold" data-t="contact-footer"></span>
         </div>
     </footer>
 
@@ -118,58 +187,86 @@
         const translations = {
             de: {
                 "page-title": "Impressum",
-                "back-home": "Zurück",
-                "intro": "Swiss Data Atlas bietet Informationen zu Schweizer Unternehmensdaten via Snowflake Marketplace.",
+                "nav-services": "Dienstleistungen",
+                "nav-whyUs": "Über uns",
+                "nav-contact": "Kontakt",
+                "intro": "the-recruiter.ch ist eine Marke von BI Concepts. Hier finden Sie unsere Kontaktinformationen und rechtlichen Angaben.",
                 "publisher-label": "Herausgeber und Inhalt:",
                 "country": "Schweiz",
                 "last-modified-label": "Letzte Änderung:",
                 "footer-impressum": "Impressum",
                 "footer-privacy": "Datenschutz",
-                "footer-terms": "AGB"
+                "contact-footer": "the-recruiter.ch ist eine Marke von bi-concepts.ch"
             },
             en: {
                 "page-title": "Imprint",
-                "back-home": "Back",
-                "intro": "Swiss Data Atlas provides information on Swiss company data via Snowflake Marketplace.",
+                "nav-services": "Services",
+                "nav-whyUs": "About",
+                "nav-contact": "Contact",
+                "intro": "the-recruiter.ch is a trademark of BI Concepts. Here you will find our contact information and legal details.",
                 "publisher-label": "Publisher and Content:",
                 "country": "Switzerland",
                 "last-modified-label": "Last Modified:",
                 "footer-impressum": "Imprint",
                 "footer-privacy": "Privacy Policy",
-                "footer-terms": "Terms & Conditions"
+                "contact-footer": "the-recruiter.ch is a trademark of bi-concepts.ch"
             }
         };
+
+        function toggleLang() {
+            const currentLang = document.documentElement.lang === 'de' ? 'de' : 'en';
+            const newLang = currentLang === 'de' ? 'en' : 'de';
+            setLang(newLang);
+        }
 
         function setLang(lang) {
             const elements = document.querySelectorAll('[data-t]');
             elements.forEach(el => {
                 const key = el.getAttribute('data-t');
-                if (translations[lang][key]) {
+                if (translations[lang] && translations[lang][key]) {
                     el.innerHTML = translations[lang][key];
                 }
             });
 
-            const btnDe = document.getElementById('btn-de');
-            const btnEn = document.getElementById('btn-en');
+            const langText = document.getElementById('lang-text');
+            const langTextMobile = document.getElementById('lang-text-mobile');
+            if (langText) langText.textContent = lang === 'de' ? 'DE' : 'EN';
+            if (langTextMobile) langTextMobile.textContent = lang === 'de' ? 'DE' : 'EN';
 
-            if (lang === 'de') {
-                btnDe.className = "active px-2 sm:px-3 py-1 rounded-md transition-all bg-white/20 text-white border border-transparent";
-                btnEn.className = "px-2 sm:px-3 py-1 rounded-md transition-all text-white/60 hover:text-white border border-transparent";
-                document.documentElement.lang = "de";
+            document.documentElement.lang = lang;
+            localStorage.setItem('tr-lang', lang);
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            menu.classList.toggle('translate-x-full');
+            if (menu.classList.contains('translate-x-full')) {
+                icon.setAttribute('data-lucide', 'menu');
             } else {
-                btnEn.className = "active px-2 sm:px-3 py-1 rounded-md transition-all bg-white/20 text-white border border-transparent";
-                btnDe.className = "px-2 sm:px-3 py-1 rounded-md transition-all text-white/60 hover:text-white border border-transparent";
-                document.documentElement.lang = "en";
+                icon.setAttribute('data-lucide', 'x');
             }
-            
-            localStorage.setItem('sda-lang', lang);
+            lucide.createIcons();
+        }
+
+        function closeMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            menu.classList.add('translate-x-full');
+            icon.setAttribute('data-lucide', 'menu');
+            lucide.createIcons();
         }
 
         lucide.createIcons();
         
         // Initialize with stored language preference
-        const storedLang = localStorage.getItem('sda-lang') || 'de';
+        const storedLang = localStorage.getItem('tr-lang') || 'de';
         setLang(storedLang);
+
+        // Set current date and year
+        const now = new Date();
+        document.getElementById('current-date').textContent = now.toLocaleDateString('de-CH');
+        document.getElementById('current-year').textContent = now.getFullYear();
     </script>
 </body>
 

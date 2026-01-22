@@ -2,86 +2,248 @@
 <html lang="de">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>404 - Page Not Found | Swiss Data Atlas</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | the recruiter</title>
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="alternate icon" href="images/favicon.svg">
 
-  <!-- Font Preloading -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style"
-    href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;400;500;600;700;800;900&family=Syne:wght@400;500;600;700;800&display=swap">
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;400;500;600;700;800;900&family=Syne:wght@400;500;600;700;800&display=swap">
+    <!-- Helvetica Neue is a system font, no external loading needed -->
 
-  <!-- External Stylesheets -->
-  <link rel="stylesheet" href="css/styles.css">
-  <!-- Built Tailwind CSS (production) -->
-  <link rel="stylesheet" href="css/tailwind.css">
-  <!-- Tailwind CDN fallback for development -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Built Tailwind CSS (production) -->
+    <link rel="stylesheet" href="css/tailwind.css">
+    <!-- Tailwind CDN fallback for development -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Global font - Helvetica Neue for everything */
+        * {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #000000;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+            scroll-behavior: smooth;
+        }
+
+        /* Force Helvetica Neue on all typography elements */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        a,
+        span,
+        div,
+        button,
+        input,
+        textarea,
+        select,
+        label {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+        }
+
+        /* Logo styling - Helvetica Neue, lowercase, minimal line height */
+        .logo {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            text-transform: lowercase;
+            line-height: 0.5;
+        }
+
+        .logo-light {
+            color: #ffffff;
+        }
+
+        .logo-dark {
+            color: #000000;
+        }
+    </style>
 </head>
 
-<body class="min-h-screen flex flex-col">
-  <!-- Navigation -->
-  <nav class="fixed w-full z-50 bg-slate-900 backdrop-blur-md" style="height: 80px;">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
-      <div class="flex justify-between h-full items-center">
-        <a href="index.html" class="flex items-center space-x-2 min-w-0">
-          <img src="images/logo-bc.svg" alt="Swiss Data Atlas" class="h-9 w-9 flex-shrink-0" />
-          <span class="nav-logo-text font-bold text-base sm:text-lg tracking-tight text-white truncate"
-            style="font-family: 'Syne', sans-serif;">Swiss Data Atlas</span>
-        </a>
-      </div>
-    </div>
-  </nav>
+<body class="min-h-screen bg-white text-black antialiased">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white transition-all duration-500" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+            <!-- Logo -->
+            <a href="index.html" class="logo logo-dark flex flex-col leading-[0.5]">
+                <span class="text-4xl font-bold ml-6 tracking-tight">the</span>
+                <span class="text-4xl font-bold tracking-tight">recruiter</span>
+            </a>
 
-  <!-- Main Content -->
-  <main class="flex-1 flex items-center justify-center gradient-bg pt-20">
-    <div class="text-center px-4 py-20">
-      <div class="glass-card rounded-3xl p-10 sm:p-16 max-w-lg mx-auto border border-white/10">
-        <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-8"
-          style="background-color: rgba(0, 149, 242, 0.2);">
-          <i data-lucide="file-question" class="w-10 h-10" style="color: #0095f2;"></i>
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center gap-10">
+                <div class="flex gap-8 text-[11px] font-bold uppercase tracking-[0.3em] text-black">
+                    <a href="index.html#services" class="hover:text-gray-400 transition-colors" data-t="nav-services"></a>
+                    <a href="index.html#why" class="hover:text-gray-400 transition-colors" data-t="nav-whyUs"></a>
+                </div>
+                <div class="h-4 w-[1px] bg-gray-200"></div>
+                <button onclick="toggleLang()" id="lang-btn"
+                    class="text-[10px] font-black border border-black px-2 py-1 hover:bg-black hover:text-white transition-all uppercase">
+                    <span id="lang-text">EN</span>
+                </button>
+                <a href="index.html#contact" data-t="nav-contact"
+                    class="text-[11px] font-bold border-b-2 border-black pb-1 hover:text-gray-500 hover:border-gray-500 transition-all uppercase"></a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu"
+                id="mobile-menu-btn">
+                <i data-lucide="menu" class="w-6 h-6 text-black" id="menu-icon"></i>
+            </button>
         </div>
-        <h1 class="text-6xl sm:text-8xl font-bold text-white mb-4" style="font-family: 'Syne', sans-serif;">404</h1>
-        <h2 class="text-xl sm:text-2xl font-semibold text-white mb-4" style="font-family: 'Syne', sans-serif;"
-          id="error-title">Seite nicht gefunden</h2>
-        <p class="text-slate-300 mb-8 text-base sm:text-lg" id="error-desc">Die angeforderte Seite existiert leider
-          nicht oder wurde verschoben.</p>
-        <a href="index.html" class="button-webflow-filled inline-flex items-center">
-          <i data-lucide="home" class="mr-2 w-5 h-5"></i>
-          <span id="back-home">Zur Startseite</span>
-        </a>
-      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 md:hidden">
+        <div class="flex flex-col items-center justify-center h-full gap-8">
+            <a href="index.html#services" data-t="nav-services" onclick="closeMobileMenu()"
+                class="text-2xl font-bold uppercase tracking-wider"></a>
+            <a href="index.html#why" data-t="nav-whyUs" onclick="closeMobileMenu()"
+                class="text-2xl font-bold uppercase tracking-wider"></a>
+            <a href="index.html#contact" data-t="nav-contact" onclick="closeMobileMenu()"
+                class="text-2xl font-bold uppercase tracking-wider"></a>
+            <button onclick="toggleLang(); closeMobileMenu();"
+                class="text-xl font-black border-2 border-black px-4 py-2 uppercase">
+                <span id="lang-text-mobile">EN</span>
+            </button>
+        </div>
     </div>
-  </main>
 
-  <!-- Footer -->
-  <footer class="bg-slate-900 text-slate-400 py-8 border-t border-white/5">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-base">
-      <span>© 2026 <a href="https://www.bi-concepts.ch" target="_blank" rel="noopener noreferrer"
-          class="hover:text-white transition-colors underline">BI Concepts</a>. All rights reserved.</span>
-    </div>
-  </footer>
+    <!-- Main Content -->
+    <main class="flex-1 flex items-center justify-center pt-32 pb-20">
+        <div class="text-center px-6 py-20">
+            <div class="max-w-lg mx-auto">
+                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-8 bg-black/5">
+                    <i data-lucide="file-question" class="w-10 h-10 text-black"></i>
+                </div>
+                <h1 class="text-6xl sm:text-8xl font-bold text-black mb-4">404</h1>
+                <h2 class="text-xl sm:text-2xl font-semibold text-black mb-4" id="error-title">Seite nicht gefunden</h2>
+                <p class="text-gray-600 mb-8 text-base sm:text-lg" id="error-desc">Die angeforderte Seite existiert leider nicht oder wurde verschoben.</p>
+                <a href="index.html" class="inline-flex items-center gap-2 bg-black text-white px-8 py-4 hover:bg-gray-800 transition-all rounded-modern">
+                    <i data-lucide="home" class="w-5 h-5"></i>
+                    <span id="back-home" class="text-sm font-bold uppercase tracking-[0.2em]">Zur Startseite</span>
+                </a>
+            </div>
+        </div>
+    </main>
 
-  <script>
-    lucide.createIcons();
+    <!-- Footer -->
+    <footer class="py-20 bg-black text-white border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-12">
+            <div class="logo logo-light flex flex-col leading-[0.5]">
+                <span class="text-4xl font-bold ml-6 tracking-tight">the</span>
+                <span class="text-4xl font-bold tracking-tight">recruiter</span>
+            </div>
 
-    // Check stored language preference
-    const storedLang = localStorage.getItem('sda-lang') || 'de';
+            <div
+                class="flex flex-wrap justify-center gap-12 text-[10px] font-black uppercase tracking-[0.3em] text-gray-400">
+                <a href="impressum.html" class="hover:text-white transition-colors" data-t="footer-impressum"></a>
+                <a href="privacy-policy.html" class="hover:text-white transition-colors" data-t="footer-privacy"></a>
+                <a href="https://bi-concepts.ch" target="_blank" rel="noopener noreferrer"
+                    class="text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition-all">bi-concepts.ch</a>
+            </div>
+        </div>
+        <div
+            class="max-w-7xl mx-auto px-6 mt-16 pt-10 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
+            <span class="text-[9px] uppercase tracking-[0.5em] text-gray-400 font-bold">© <span
+                    id="current-year"></span> the recruiter</span>
+            <span class="text-[9px] uppercase tracking-[0.3em] text-gray-400 font-bold" data-t="contact-footer"></span>
+        </div>
+    </footer>
 
-    if (storedLang === 'en') {
-      document.getElementById('error-title').textContent = 'Page Not Found';
-      document.getElementById('error-desc').textContent = 'The requested page does not exist or has been moved.';
-      document.getElementById('back-home').textContent = 'Back to Home';
-      document.documentElement.lang = 'en';
-    }
-  </script>
+    <script>
+        const translations = {
+            de: {
+                "nav-services": "Dienstleistungen",
+                "nav-whyUs": "Über uns",
+                "nav-contact": "Kontakt",
+                "footer-impressum": "Impressum",
+                "footer-privacy": "Datenschutz",
+                "contact-footer": "the-recruiter.ch ist eine Marke von bi-concepts.ch"
+            },
+            en: {
+                "nav-services": "Services",
+                "nav-whyUs": "About",
+                "nav-contact": "Contact",
+                "footer-impressum": "Imprint",
+                "footer-privacy": "Privacy Policy",
+                "contact-footer": "the-recruiter.ch is a trademark of bi-concepts.ch"
+            }
+        };
+
+        function toggleLang() {
+            const currentLang = document.documentElement.lang === 'de' ? 'de' : 'en';
+            const newLang = currentLang === 'de' ? 'en' : 'de';
+            setLang(newLang);
+        }
+
+        function setLang(lang) {
+            const elements = document.querySelectorAll('[data-t]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-t');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+
+            const langText = document.getElementById('lang-text');
+            const langTextMobile = document.getElementById('lang-text-mobile');
+            if (langText) langText.textContent = lang === 'de' ? 'DE' : 'EN';
+            if (langTextMobile) langTextMobile.textContent = lang === 'de' ? 'DE' : 'EN';
+
+            // Update error page text
+            if (lang === 'en') {
+                document.getElementById('error-title').textContent = 'Page Not Found';
+                document.getElementById('error-desc').textContent = 'The requested page does not exist or has been moved.';
+                document.getElementById('back-home').textContent = 'Back to Home';
+            } else {
+                document.getElementById('error-title').textContent = 'Seite nicht gefunden';
+                document.getElementById('error-desc').textContent = 'Die angeforderte Seite existiert leider nicht oder wurde verschoben.';
+                document.getElementById('back-home').textContent = 'Zur Startseite';
+            }
+
+            document.documentElement.lang = lang;
+            localStorage.setItem('tr-lang', lang);
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            menu.classList.toggle('translate-x-full');
+            if (menu.classList.contains('translate-x-full')) {
+                icon.setAttribute('data-lucide', 'menu');
+            } else {
+                icon.setAttribute('data-lucide', 'x');
+            }
+            lucide.createIcons();
+        }
+
+        function closeMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            menu.classList.add('translate-x-full');
+            icon.setAttribute('data-lucide', 'menu');
+            lucide.createIcons();
+        }
+
+        lucide.createIcons();
+        
+        // Initialize with stored language preference
+        const storedLang = localStorage.getItem('tr-lang') || 'de';
+        setLang(storedLang);
+
+        // Set current year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
 </body>
 
 </html>

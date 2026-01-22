@@ -4,22 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AGB | Swiss Data Atlas</title>
+    <title>AGB | the recruiter</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
     <link rel="alternate icon" href="images/favicon.svg">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://swissdataatlas.ch/terms-and-conditions.html">
+    <link rel="canonical" href="https://www.the-recruiter.ch/terms-and-conditions.html">
 
-    <!-- Font Preloading for Performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style"
-        href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;400;500;600;700;800;900&family=Syne:wght@400;500;600;700;800&display=swap">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;400;500;600;700;800;900&family=Syne:wght@400;500;600;700;800&display=swap">
+    <!-- Helvetica Neue is a system font, no external loading needed -->
 
     <!-- External Stylesheets -->
     <link rel="stylesheet" href="css/styles.css">
@@ -28,111 +22,141 @@
     <!-- Tailwind CDN fallback for development -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    
     <style>
+        /* Global font - Helvetica Neue for everything */
+        * {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #000000;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+            scroll-behavior: smooth;
+        }
+
+        /* Force Helvetica Neue on all typography elements */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        a,
+        span,
+        div,
+        button,
+        input,
+        textarea,
+        select,
+        label {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+        }
+
+        /* Logo styling - Helvetica Neue, lowercase, minimal line height */
+        .logo {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            text-transform: lowercase;
+            line-height: 0.5;
+        }
+
+        .logo-light {
+            color: #ffffff;
+        }
+
+        .logo-dark {
+            color: #000000;
+        }
+
         .prose h2 {
-            font-family: 'Syne', sans-serif;
             font-size: 1.75rem;
             font-weight: 600;
-            color: #101010;
+            color: #000000;
             margin-top: 2rem;
             margin-bottom: 1rem;
         }
         .prose p {
             margin-bottom: 1rem;
             line-height: 1.7;
+            color: #374151;
+        }
+        .prose a {
+            color: #000000;
+            text-decoration: underline;
+        }
+        .prose a:hover {
+            color: #4b5563;
         }
     </style>
 </head>
 
-<body class="min-h-screen flex flex-col">
+<body class="min-h-screen bg-white text-black antialiased">
     <!-- Skip to Content Link for Accessibility -->
     <a href="#main-content" class="skip-to-content">Skip to main content</a>
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-slate-900 backdrop-blur-md" style="height: 80px;">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
-            <div class="flex justify-between h-full items-center">
-                <a href="index.html" class="flex items-center space-x-2 min-w-0">
-                    <img src="images/logo-bc.svg" alt="Swiss Data Atlas" class="h-9 w-9 flex-shrink-0" />
-                    <span class="nav-logo-text font-bold text-base sm:text-lg tracking-tight text-white truncate"
-                        style="font-family: 'Syne', sans-serif;">Swiss Data Atlas</span>
-                </a>
+    <nav class="fixed w-full z-50 bg-white transition-all duration-500" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+            <!-- Logo -->
+            <a href="index.html" class="logo logo-dark flex flex-col leading-[0.5]">
+                <span class="text-4xl font-bold ml-6 tracking-tight">the</span>
+                <span class="text-4xl font-bold tracking-tight">recruiter</span>
+            </a>
 
-                <div class="flex items-center space-x-2 sm:space-x-4">
-                    <!-- Language Switcher -->
-                    <div class="language-switcher flex bg-white/10 backdrop-blur-sm p-0.5 sm:p-1 rounded-lg text-[10px] sm:text-xs font-bold flex-shrink-0">
-                        <button onclick="setLang('de')" id="btn-de"
-                            class="active px-2 sm:px-3 py-1 rounded-md transition-all bg-white/20 text-white border border-transparent">DE</button>
-                        <button onclick="setLang('en')" id="btn-en"
-                            class="px-2 sm:px-3 py-1 rounded-md transition-all text-white/60 hover:text-white border border-transparent">EN</button>
-                    </div>
-
-                    <a href="index.html" class="button-webflow text-sm">
-                        <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i>
-                        <span data-t="back-home"></span>
-                    </a>
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center gap-10">
+                <div class="flex gap-8 text-[11px] font-bold uppercase tracking-[0.3em] text-black">
+                    <a href="index.html#services" class="hover:text-gray-400 transition-colors" data-t="nav-services"></a>
+                    <a href="index.html#why" class="hover:text-gray-400 transition-colors" data-t="nav-whyUs"></a>
                 </div>
+                <div class="h-4 w-[1px] bg-gray-200"></div>
+                <button onclick="toggleLang()" id="lang-btn"
+                    class="text-[10px] font-black border border-black px-2 py-1 hover:bg-black hover:text-white transition-all uppercase">
+                    <span id="lang-text">EN</span>
+                </button>
+                <a href="index.html#contact" data-t="nav-contact"
+                    class="text-[11px] font-bold border-b-2 border-black pb-1 hover:text-gray-500 hover:border-gray-500 transition-all uppercase"></a>
             </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu"
+                id="mobile-menu-btn">
+                <i data-lucide="menu" class="w-6 h-6 text-black" id="menu-icon"></i>
+            </button>
         </div>
     </nav>
 
+    <!-- Mobile Menu -->
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 md:hidden">
+        <div class="flex flex-col items-center justify-center h-full gap-8">
+            <a href="index.html#services" data-t="nav-services" onclick="closeMobileMenu()"
+                class="text-2xl font-bold uppercase tracking-wider"></a>
+            <a href="index.html#why" data-t="nav-whyUs" onclick="closeMobileMenu()"
+                class="text-2xl font-bold uppercase tracking-wider"></a>
+            <a href="index.html#contact" data-t="nav-contact" onclick="closeMobileMenu()"
+                class="text-2xl font-bold uppercase tracking-wider"></a>
+            <button onclick="toggleLang(); closeMobileMenu();"
+                class="text-xl font-black border-2 border-black px-4 py-2 uppercase">
+                <span id="lang-text-mobile">EN</span>
+            </button>
+        </div>
+    </div>
+
     <!-- Page Header -->
-    <header class="pt-32 pb-12 gradient-bg text-white">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="heading__1 heading-light" data-t="page-title"></h1>
+    <header class="pt-32 pb-16 bg-white">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold tracking-tight text-black mb-4" data-t="page-title"></h1>
         </div>
     </header>
 
     <!-- Main Content -->
     <main id="main-content" class="flex-1 py-12 sm:py-16 bg-white">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="prose prose-lg max-w-none text-slate-700">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="prose prose-lg max-w-none">
                 
-                <!-- Swiss Data Atlas Legal Terms -->
-                <p class="text-sm text-slate-500 mb-8" data-t="legal-intro"></p>
-
-                <h2 data-t="sda-1-title"></h2>
-                <p data-t="sda-1-p1"></p>
-                <p data-t="sda-1-p2"></p>
-
-                <h2 data-t="sda-2-title"></h2>
-                <p data-t="sda-2-p1"></p>
-                <p data-t="sda-2-p2"></p>
-
-                <h2 data-t="sda-3-title"></h2>
-                <p data-t="sda-3-p1"></p>
-                <p data-t="sda-3-p2"></p>
-
-                <h2 data-t="sda-4-title"></h2>
-                <p data-t="sda-4-p1"></p>
-
-                <h2 data-t="sda-5-title"></h2>
-                <p data-t="sda-5-p1"></p>
-                <p data-t="sda-5-p2"></p>
-
-                <h2 data-t="sda-6-title"></h2>
-                <p data-t="sda-6-p1"></p>
-
-                <h2 data-t="sda-7-title"></h2>
-                <p data-t="sda-7-p1"></p>
-
-                <h2 data-t="sda-8-title"></h2>
-                <p data-t="sda-8-p1"></p>
-
-                <h2 data-t="sda-9-title"></h2>
-                <p data-t="sda-9-p1"></p>
-
-                <h2 data-t="sda-10-title"></h2>
-                <p data-t="sda-10-p1"></p>
-                <p data-t="sda-10-p2"></p>
-
-                <h2 data-t="sda-11-title"></h2>
-                <p data-t="sda-11-p1"></p>
-
-                <!-- Original Terms -->
-                <hr class="my-12 border-slate-200">
-                <p class="text-sm text-slate-500 mb-8" data-t="general-terms-intro"></p>
+                <p class="text-sm text-gray-500 mb-8" data-t="general-terms-intro"></p>
 
                 <h2 data-t="section-1-title"></h2>
                 <p data-t="section-1-p1"></p>
@@ -152,19 +176,26 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center text-base">
-            <div class="flex items-center space-x-3 mb-4 md:mb-0">
-                <img src="images/logo-bc.svg" alt="Swiss Data Atlas" class="w-7 h-7" loading="lazy" />
-                <span class="font-bold text-white text-lg">Swiss Data Atlas</span>
-                <span>© 2026 <a href="https://www.bi-concepts.ch" target="_blank" rel="noopener noreferrer"
-                        class="hover:text-white transition-colors underline">BI Concepts</a>.</span>
+    <footer class="py-20 bg-black text-white border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-12">
+            <div class="logo logo-light flex flex-col leading-[0.5]">
+                <span class="text-4xl font-bold ml-6 tracking-tight">the</span>
+                <span class="text-4xl font-bold tracking-tight">recruiter</span>
             </div>
-            <div class="flex space-x-8">
+
+            <div
+                class="flex flex-wrap justify-center gap-12 text-[10px] font-black uppercase tracking-[0.3em] text-gray-400">
                 <a href="impressum.html" class="hover:text-white transition-colors" data-t="footer-impressum"></a>
                 <a href="privacy-policy.html" class="hover:text-white transition-colors" data-t="footer-privacy"></a>
-                <a href="terms-and-conditions.html" class="hover:text-white transition-colors text-white" data-t="footer-terms"></a>
+                <a href="https://bi-concepts.ch" target="_blank" rel="noopener noreferrer"
+                    class="text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition-all">bi-concepts.ch</a>
             </div>
+        </div>
+        <div
+            class="max-w-7xl mx-auto px-6 mt-16 pt-10 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
+            <span class="text-[9px] uppercase tracking-[0.5em] text-gray-400 font-bold">© <span
+                    id="current-year"></span> the recruiter</span>
+            <span class="text-[9px] uppercase tracking-[0.3em] text-gray-400 font-bold" data-t="contact-footer"></span>
         </div>
     </footer>
 
@@ -172,53 +203,13 @@
         const translations = {
             de: {
                 "page-title": "Allgemeine Geschäftsbedingungen",
-                "back-home": "Zurück",
+                "nav-services": "Dienstleistungen",
+                "nav-whyUs": "Über uns",
+                "nav-contact": "Kontakt",
                 "footer-impressum": "Impressum",
                 "footer-privacy": "Datenschutz",
-                "footer-terms": "AGB",
+                "contact-footer": "the-recruiter.ch ist eine Marke von bi-concepts.ch",
                 
-                // Swiss Data Atlas Legal Terms
-                "legal-intro": "Swiss Data Atlas – Rechtliche Bestimmungen",
-                
-                "sda-1-title": "1. Lizenzumfang",
-                "sda-1-p1": "Das Datenprodukt Swiss Data Atlas («Datensatz») wird dem Kunden ausschliesslich für interne Geschäftszwecke lizenziert.",
-                "sda-1-p2": "Die erlaubte Nutzung umfasst Analysen, Sales- und Marketing-Targeting, Zielgruppensegmentierung, CRM-Anreicherung, Marktanalysen und interne Go-to-Market-Aktivitäten.",
-                
-                "sda-2-title": "2. Eigentum und geistiges Eigentum",
-                "sda-2-p1": "BI Concepts GmbH («Anbieter») behält alle Rechte, Titel und Ansprüche am Datensatz, einschliesslich, aber nicht beschränkt auf: Datenerhebung und -aggregation, Anreicherung und Transformation, Klassifizierungs- und Segmentierungslogik sowie Datenstruktur und -schema.",
-                "sda-2-p2": "Der Datensatz kann Informationen enthalten, die aus offiziellen oder öffentlichen Quellen stammen. Die gewährte Lizenz gilt nur für den Datensatz in der bereitgestellten Form, einschliesslich der Anreicherung und Struktur des Anbieters, und gewährt keine Rechte an zugrunde liegenden Quellmaterialien über deren Einbeziehung in den Datensatz hinaus.",
-                
-                "sda-3-title": "3. Nutzungsbeschränkungen",
-                "sda-3-p1": "Der Kunde darf nicht: den Datensatz oder Teile davon weiterverkaufen, unterlizenzieren, weiterverteilen oder veröffentlichen; den Datensatz Dritten ausserhalb der Organisation des Kunden zugänglich machen; den Datensatz zur Erstellung oder zum Angebot eines konkurrierenden Datenprodukts oder -dienstes verwenden; den Datensatz als eigenständigen Daten-Feed für externe Kunden oder Partner nutzen.",
-                "sda-3-p2": "Jede Nutzung über interne Geschäftszwecke hinaus erfordert eine separate schriftliche Vereinbarung mit dem Anbieter.",
-                
-                "sda-4-title": "4. Personenbezogene Daten",
-                "sda-4-p1": "Der Datensatz bezieht sich primär auf juristische Personen (Unternehmen). Soweit personenbezogene Daten natürlicher Personen enthalten sind, beschränken sich diese ausschliesslich auf Informationen zu Zeichnungsberechtigten und Organmitgliedern, die bereits öffentlich in den amtlichen Handelsregistern der Schweiz publiziert und allgemein zugänglich sind. Der Kunde ist für die Einhaltung der anwendbaren Datenschutzbestimmungen im Rahmen seiner Nutzung dieser Daten selbst verantwortlich.",
-                
-                "sda-5-title": "5. Compliance und regulierte Nutzung",
-                "sda-5-p1": "Der Datensatz ist nicht dazu bestimmt, als alleinige Grundlage für Folgendes verwendet zu werden: regulatorische Berichterstattung, KYC/KYB- oder AML-Entscheidungen, Kredit-, Risiko- oder Compliance-Scoring, rechtsverbindliche oder automatisierte Entscheidungsprozesse.",
-                "sda-5-p2": "Wenn der Kunde beabsichtigt, den Datensatz in regulierten oder compliance-kritischen Kontexten zu verwenden, muss diese Nutzung vom Kunden unabhängig validiert werden und kann zusätzliche Lizenzbedingungen erfordern.",
-                
-                "sda-6-title": "6. Datengenauigkeit und Aktualisierungen",
-                "sda-6-p1": "Der Datensatz wird auf einer wirtschaftlich angemessenen Best-Effort-Basis bereitgestellt. Obwohl der Anbieter Qualitätskontrollen und regelmässige Aktualisierungen durchführt, garantiert der Anbieter nicht die Vollständigkeit, Richtigkeit oder Eignung für einen bestimmten Zweck.",
-                
-                "sda-7-title": "7. Gewährleistungsausschluss",
-                "sda-7-p1": "Der Datensatz wird «wie besehen» und «wie verfügbar» ohne jegliche ausdrückliche oder stillschweigende Gewährleistung bereitgestellt, einschliesslich Gewährleistungen der Marktgängigkeit oder Eignung für einen bestimmten Zweck.",
-                
-                "sda-8-title": "8. Haftungsbeschränkung",
-                "sda-8-p1": "Im grösstmöglichen gesetzlich zulässigen Umfang ist die Gesamthaftung des Anbieters, die sich aus oder im Zusammenhang mit dem Datensatz ergibt, auf die vom Kunden für den Datensatz in den zwölf (12) Monaten vor dem Anspruch gezahlten Gebühren beschränkt.",
-                
-                "sda-9-title": "9. Kündigung",
-                "sda-9-p1": "Bei Beendigung oder Ablauf der Zugriffsrechte muss der Kunde jegliche Nutzung des Datensatzes einstellen und alle gespeicherten Kopien löschen, ausser wenn die Aufbewahrung nach geltendem Recht erforderlich ist.",
-                
-                "sda-10-title": "10. Massgebliche Vereinbarung",
-                "sda-10-p1": "Diese rechtlichen Bestimmungen ergänzen die Snowflake Marketplace Standard-Vereinbarung und unterliegen dieser. Im Falle eines Konflikts haben diese rechtlichen Bestimmungen in Bezug auf die datensatzspezifische Nutzung Vorrang.",
-                "sda-10-p2": "Diese Vereinbarung unterliegt dem Recht der Schweiz. Gerichtsstand ist Zürich, Schweiz.",
-                
-                "sda-11-title": "11. Anbieter",
-                "sda-11-p1": "BI Concepts GmbH, Oberdorfstrasse 13, 8808 Pfäffikon SZ, Schweiz",
-                
-                // General Terms
                 "general-terms-intro": "Allgemeine Nutzungsbedingungen der Website",
 
                 "section-1-title": "Haftungsausschluss",
@@ -236,53 +227,13 @@
             },
             en: {
                 "page-title": "Terms and Conditions",
-                "back-home": "Back",
+                "nav-services": "Services",
+                "nav-whyUs": "About",
+                "nav-contact": "Contact",
                 "footer-impressum": "Imprint",
                 "footer-privacy": "Privacy Policy",
-                "footer-terms": "Terms & Conditions",
+                "contact-footer": "the-recruiter.ch is a trademark of bi-concepts.ch",
                 
-                // Swiss Data Atlas Legal Terms
-                "legal-intro": "Swiss Data Atlas – Legal Terms",
-                
-                "sda-1-title": "1. Scope of License",
-                "sda-1-p1": "The data product Swiss Data Atlas (\"Dataset\") is licensed to the customer for internal business purposes only.",
-                "sda-1-p2": "Permitted use includes analytics, sales and marketing targeting, audience segmentation, CRM enrichment, market analysis, and internal go-to-market activities.",
-                
-                "sda-2-title": "2. Ownership and Intellectual Property",
-                "sda-2-p1": "BI Concepts GmbH (\"Provider\") retains all rights, title, and interest in and to the Dataset, including but not limited to: data collection and aggregation, enrichment and transformation, classification and segmentation logic, data structure and schema.",
-                "sda-2-p2": "The Dataset may incorporate information derived from official or public sources. The license granted applies only to the Dataset as provided, including Provider's enrichment and structure, and does not grant any rights to underlying source materials beyond their inclusion in the Dataset.",
-                
-                "sda-3-title": "3. Usage Restrictions",
-                "sda-3-p1": "The customer may not: resell, sublicense, redistribute, or publish the Dataset or any portion thereof; make the Dataset available to third parties outside the customer's organization; use the Dataset to create or offer a competing data product or service; use the Dataset as a standalone data feed for external customers or partners.",
-                "sda-3-p2": "Any use beyond internal business purposes requires a separate written agreement with the Provider.",
-                
-                "sda-4-title": "4. Personal Data",
-                "sda-4-p1": "The Dataset relates primarily to legal entities (companies). To the extent that personal data of natural persons is included, such data is strictly limited to information concerning signatories and corporate officers that is already publicly disclosed and generally accessible in the official Swiss commercial registers. The customer is solely responsible for ensuring compliance with applicable data protection regulations in connection with its use of such data.",
-                
-                "sda-5-title": "5. Compliance and Regulated Use",
-                "sda-5-p1": "The Dataset is not intended to be used as the sole basis for: regulatory reporting, KYC/KYB or AML decisioning, credit, risk, or compliance scoring, legally binding or automated decision-making processes.",
-                "sda-5-p2": "If the customer intends to use the Dataset in regulated or compliance-critical contexts, such use must be independently validated by the customer and may require additional licensing terms.",
-                
-                "sda-6-title": "6. Data Accuracy and Updates",
-                "sda-6-p1": "The Dataset is provided on a commercially reasonable best-effort basis. While Provider applies quality controls and regular updates, the Provider does not warrant completeness, accuracy, or fitness for a particular purpose.",
-                
-                "sda-7-title": "7. Disclaimer of Warranties",
-                "sda-7-p1": "The Dataset is provided \"as is\" and \"as available,\" without warranties of any kind, whether express or implied, including warranties of merchantability or fitness for a particular purpose.",
-                
-                "sda-8-title": "8. Limitation of Liability",
-                "sda-8-p1": "To the maximum extent permitted by law, Provider's total liability arising out of or related to the Dataset shall be limited to the fees paid by the customer for the Dataset during the twelve (12) months preceding the claim.",
-                
-                "sda-9-title": "9. Termination",
-                "sda-9-p1": "Upon termination or expiration of access rights, the customer must cease all use of the Dataset and delete any retained copies, except where retention is required by applicable law.",
-                
-                "sda-10-title": "10. Governing Agreement",
-                "sda-10-p1": "These Legal Terms supplement and are governed by the Snowflake Marketplace Standard Agreement. In the event of a conflict, these Legal Terms shall prevail with respect to Dataset-specific usage.",
-                "sda-10-p2": "This agreement is governed by the laws of Switzerland. The place of jurisdiction is Zurich, Switzerland.",
-                
-                "sda-11-title": "11. Provider",
-                "sda-11-p1": "BI Concepts GmbH, Oberdorfstrasse 13, 8808 Pfäffikon SZ, Switzerland",
-                
-                // General Terms
                 "general-terms-intro": "General Website Terms of Use",
 
                 "section-1-title": "Limitation of liability",
@@ -300,36 +251,58 @@
             }
         };
 
+        function toggleLang() {
+            const currentLang = document.documentElement.lang === 'de' ? 'de' : 'en';
+            const newLang = currentLang === 'de' ? 'en' : 'de';
+            setLang(newLang);
+        }
+
         function setLang(lang) {
             const elements = document.querySelectorAll('[data-t]');
             elements.forEach(el => {
                 const key = el.getAttribute('data-t');
-                if (translations[lang][key]) {
+                if (translations[lang] && translations[lang][key]) {
                     el.innerHTML = translations[lang][key];
                 }
             });
 
-            const btnDe = document.getElementById('btn-de');
-            const btnEn = document.getElementById('btn-en');
+            const langText = document.getElementById('lang-text');
+            const langTextMobile = document.getElementById('lang-text-mobile');
+            if (langText) langText.textContent = lang === 'de' ? 'DE' : 'EN';
+            if (langTextMobile) langTextMobile.textContent = lang === 'de' ? 'DE' : 'EN';
 
-            if (lang === 'de') {
-                btnDe.className = "active px-2 sm:px-3 py-1 rounded-md transition-all bg-white/20 text-white border border-transparent";
-                btnEn.className = "px-2 sm:px-3 py-1 rounded-md transition-all text-white/60 hover:text-white border border-transparent";
-                document.documentElement.lang = "de";
+            document.documentElement.lang = lang;
+            localStorage.setItem('tr-lang', lang);
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            menu.classList.toggle('translate-x-full');
+            if (menu.classList.contains('translate-x-full')) {
+                icon.setAttribute('data-lucide', 'menu');
             } else {
-                btnEn.className = "active px-2 sm:px-3 py-1 rounded-md transition-all bg-white/20 text-white border border-transparent";
-                btnDe.className = "px-2 sm:px-3 py-1 rounded-md transition-all text-white/60 hover:text-white border border-transparent";
-                document.documentElement.lang = "en";
+                icon.setAttribute('data-lucide', 'x');
             }
-            
-            localStorage.setItem('sda-lang', lang);
+            lucide.createIcons();
+        }
+
+        function closeMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            menu.classList.add('translate-x-full');
+            icon.setAttribute('data-lucide', 'menu');
+            lucide.createIcons();
         }
 
         lucide.createIcons();
         
         // Initialize with stored language preference
-        const storedLang = localStorage.getItem('sda-lang') || 'de';
+        const storedLang = localStorage.getItem('tr-lang') || 'de';
         setLang(storedLang);
+
+        // Set current year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
 </body>
 
